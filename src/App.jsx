@@ -28,7 +28,7 @@ function App() {
               </div>   
           </div>
           <div className="mx-auto p-3 md-w-50 md-h-50">
-                <img src="/public/imgs/recurso1.png" className="img-fluid w-80 h-auto" alt="Placeholder"/>
+                <img src="/imgs/recurso1.png" className="img-fluid w-80 h-auto" alt="Placeholder"/>
           </div>
       </div>
 
@@ -36,7 +36,7 @@ function App() {
       <div className="explicacion container p-4 d-flex flex-column mx-auto m-2 mb-4 md-p-8 shadow rounded g-0">
           <div className="d-flex flex-column flex-md-row align-items-center justify-content-center">
               <div className="align-items-center justify-content-center mx-auto p-3 md-w-50 md-h-50">
-                <img src="/public/imgs/recurso3.png" className="img-fluid w-50 h-auto" alt="Placeholder"/>
+                <img src="/imgs/recurso3.png" className="img-fluid w-50 h-auto" alt="Placeholder"/>
               </div> 
               <div className="mx-auto p-3 md-w-50 md-h-50">
                 <p className="fs-5 fs-md-1 text-wrap text-justify ">Ideal tanto para los grandes lectores como para aquellos que quieren leer más, esta aplicación te ayuda a gestionar y disfrutar tu colección de libros digitales de la forma más sencilla posible.
@@ -52,7 +52,7 @@ function App() {
                 <p className="fs-5 fs-md-1 text-wrap text-justify">Es perfecta para mejorar tu hábito de lectura, ya que te permite fijar objetivos, hacer un seguimiento de tu progreso y mantenerte motivado. Tener siempre tus libros organizados lo que hace más fácil dedicar tiempo a la lectura y convertirla en un hábito diario.</p>
               </div>
               <div className="align-items-center justify-content-center mx-auto p-3 md-w-50 md-h-50">
-                <img src="/public/imgs/recurso4.png" className="img-fluid w-75 h-auto" alt="Placeholder"/>
+                <img src="/imgs/recurso4.png" className="img-fluid w-75 h-auto" alt="Placeholder"/>
               </div> 
           </div>
       </div>
@@ -61,7 +61,7 @@ function App() {
       <div className="explicacion explicacion--amarillo container p-4 d-flex flex-column mx-auto m-2 mb-4 shadow rounded g-0">
           <div className="d-flex flex-column flex-md-row align-items-center justify-content-center">
               <div className="align-items-center justify-content-center mx-auto p-3 md-w-50 md-h-50">
-                <img src="/public/imgs/recurso2.png" className="img-fluid w-50 h-auto" alt="Placeholder"/>
+                <img src="/imgs/recurso2.png" className="img-fluid w-50 h-auto" alt="Placeholder"/>
               </div> 
               <div className="mx-auto p-3 md-w-50 md-h-50">
                 <p className="fs-5 fs-md-1 text-wrap text-justify ">Ideal tanto para los grandes lectores como para aquellos que quieren leer más, esta aplicación te ayuda a gestionar y disfrutar tu colección de libros digitales de la forma más sencilla posible.</p>
