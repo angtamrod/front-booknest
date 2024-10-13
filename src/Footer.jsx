@@ -4,7 +4,7 @@ function Footer() {
 
 
   return (
-
+    <>
 
     <footer className="footer p-4 py-4 mt-5 ">
       <div className="container">
@@ -39,7 +39,9 @@ function Footer() {
         </div>
       </div>
     </footer>
-  );
+    
+    </>
+  )
 };
 
 export default Footer;

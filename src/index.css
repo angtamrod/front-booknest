@@ -14,7 +14,7 @@
 
 }
 
-@font-face {
+/* @font-face {
   font-family: Bugaki;
   src: url(/public/fonts/Bugaki.ttf);
   font-weight: normal;
@@ -26,7 +26,9 @@
   src: url(/public/fonts/Bugaki\ Oblique.ttf);
   font-weight: normal;
   font-style: italic;
-}
+} */
+
+
 
 
 
@@ -40,15 +42,9 @@ body{
 }
 
 
-
-
-
-
 .nav{
   background-color:  #c9dbe7;
 }
-
-
 .nav-icono{
   color: #124361;
 }
@@ -56,7 +52,7 @@ body{
 
 
 .foto{
-  background-image: url(/public/imgs/fondo3.webp);
+  background-image: url(/imgs/fondo3.webp);
   background-repeat: repeat;
 }
 
@@ -91,21 +87,46 @@ body{
 }
 
 
-.formulario{
-  background-color: #c9dbe7;
+
+.app-h1{
+  font-family: Bugaki;
   color: #124361;
+  font-size: 5rem;
+}
+.app-h5{
+  color: #EF7E6B;
+  font-weight: bold;
+}
+.app-icon{
+  color: #124361;
+ 
+}
+.app-icon:hover{
+  color:  #c9dbe7;
+}
+
+
+
+
+.formulario{
+  background-color: #FDD28A;
+  color: #124361;
+  max-width: 65rem; 
 }
 .formulario-h1{
   font-family: Bugaki;
-
 }
 .formulario-label{
   font-weight: bold;
 }
 .formulario-label--option{
-  background-color: #FDD28A;
+  background-color: #c9dbe7;
+  color: #124361;
 }
 .formulario-label--switch{
+  font-family: Bugaki;
+}
+.formulario-label--radio{
   font-family: Bugaki;
 }
 .formulario-inputs{
@@ -113,31 +134,95 @@ body{
   color: #124361;
 }
 .formulario-icon{
-  color: #FDD28A;
+  color:#c9dbe7;
 }
 .formulario-boton{
   font-weight: bold;
 }
-.formulario-boton--reset{
-  background-color: #FDD28A;
-  color: #124361;
+.formulario-boton--guardar{
+  background-color:  #c9dbe7;
+  color: whitesmoke;
 }
-.formulario-boton--reset:hover{
+.formulario-boton--guardar:hover{
   background-color: #EF7E6B;
 }
-
 .formulario-boton--guardar{
   background-color: #124361;
 }
 
 
 
+
+
 .tarjeta{
-  background-color: #EF7E6B;
+  background-color: #c9dbe7;
+  color: #124361;
+  max-width: 67rem;
+}
+.tarjeta-img{
+  max-width: 350px;
+  height: auto;
+  object-fit: cover;
 }
 .tarjeta-h3{
   font-weight: bolder;
   text-decoration: underline;
+}
+.tarjeta-h4{
+  font-weight: bold;
+  text-decoration: underline;
+}
+.tarjeta-boton{
+  background-color: #FDD28A;
+  color: #124361;
+  font-weight: bold;
+}
+.tarjeta-boton:hover{
+  background-color: #124361;
+  color: whitesmoke;
+}
+.tarjeta-boton--borrar{
+  background-color: #EF7E6B;
+}
+
+
+
+.editar-h1{
+  font-family: Bugaki;
+}
+.editar-label{
+  font-weight: bold;
+}
+.editar-label--option{
+  background-color: #FDD28A;
+}
+.editar-label--switch{
+  font-family: Bugaki;
+}
+.editar-label--radio{
+  font-family: Bugaki;
+}
+.editar-inputs{
+  background-color: whitesmoke;
+  color: #124361;
+}
+.editar-icon{
+  color:#c9dbe7;
+  
+}
+.editar-boton{
+  font-weight: bold;
+}
+.editar-boton--guardar{
+  background-color:  #c9dbe7;
+  color: whitesmoke;
+}
+.editar-boton--guardar:hover{
+  background-color: #EF7E6B;
+}
+
+.editar-boton--guardar{
+  background-color: #124361;
 }
 
 

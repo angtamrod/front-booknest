@@ -1,7 +1,15 @@
+import { useState } from "react";
+
+
 import Footer from "./Footer.jsx";
 import Navbar from "./Navbar.jsx";
+import Formulario from "./Formulario.jsx";
+import Tarjeta from "./Tarjeta.jsx";
+
 
 function App() {
+
+let [formularioOn,setFormularioOn] = useState(false);
 
 
   
@@ -11,7 +19,7 @@ function App() {
       <Navbar />
 
 
-      <div className="foto container-fluid d-flex align-items-center justify-content-center vh-100 vw-100 mb-4 mt-0 rounded">
+      {/* <div className="foto container-fluid d-flex align-items-center justify-content-center vh-100 vw-100 mb-4 mt-0 rounded">
           <a className="foto-texto text-light card p-4 bg-opacity-50 shadow rounded-pill" href="#">
               <h1 className="fs-1 text-center">Comienza con BookNest</h1>
           </a>
@@ -67,86 +75,37 @@ function App() {
                 <p className="fs-5 fs-md-1 text-wrap text-justify ">Ideal tanto para los grandes lectores como para aquellos que quieren leer más, esta aplicación te ayuda a gestionar y disfrutar tu colección de libros digitales de la forma más sencilla posible.</p>
               </div> 
           </div>
+      </div> */}
+
+      <div className="app container mx-auto d-flex flex-column justify-content-center align-items-center text-center mt-5 p-3 min-vh-95">
+            <h1 className="app-h1 fs-1 text-center p-4 text-wrap rounded">Deja tus libros donde quieras, sin preocuparte por el espacio... Es Rent Free, tanto para tus estantes como para tu mente</h1>
+            <h5 className="app-h5 fs-6 p-6 mt-4 p-6 text-wrap">Pulsa aquí para añadir <br /> una nueva lectura...</h5>
+            <button type="button" className="app-button btn btn-link p-0 border-0 mt-1" 
+                    onClick={() => {
+                          setFormularioOn(!formularioOn)
+                    }}
+            ><i className="app-icon fs-1 bi bi-arrow-down-circle-fill"></i></button>
       </div>
-
-
-
-
       
-      <form className="formulario container mx-auto row g-3 shadow g-0 p-5 rounded">
-
-          <h1 className="formulario-h1 text-center">Nueva Lectura</h1>
-
-          <div className="formulario-cuadros col-12">
-            <label htmlFor="inputAddress" className="formulario-label form-label">Titulo del libro</label>
-            <input type="text" className="formulario-inputs form-control" id="inputAddress" placeholder="El guardian entre el centeno..."/>
-          </div>
-
-          <div className="formulario-cuadros col-12">
-            <label htmlFor="inputAddress2" className="formulario-label form-label">Sinopsis</label>
-            <textarea className="formulario-inputs form-control" placeholder="Pequeño resumen" id="floatingTextarea"></textarea> 
-          </div>
-
-
-          <div className="formulario-cuadros col-12">  
-            <label htmlFor="inputAddress2" className="formulario-label form-label">Reseña sobre el libro</label>
-            <textarea className="formulario-inputs form-control" placeholder="Deja tu opinión aquí" id="floatingTextarea"></textarea> 
-          </div>
-
-
-          <div className="input-group mb-3">
-              <select className=" form-select" id="inputGroupSelect02">
-                  <option selected>Elige la temática...</option>
-                  <option value="Ciencia Ficción">Ciencia Ficción</option>
-                  <option value="Fantasía">Fantasía</option>
-                  <option value="Thriller">Thriller</option>
-              </select>
-              <label className="formulario-label formulario-label--option input-group-text" htmlFor="inputGroupSelect02">Temática</label>
-          </div>
-
-          <div className="col-12 mb-3">
-              <label className="formulario-label form-label mb-2">Calificación del libro</label>
-              <div className="d-flex justify-content-between">
-                  <div className="align-items-center column">
-                        <div className="form-check form-check-inline">
-                          <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" />
-                          <label className="form-check-label" htmlFor="inlineRadio1">1<i className="formulario-icon bi bi-star-fill"></i></label>
-                        </div>
-
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2" />
-                            <label className="form-check-label" htmlFor="inlineRadio2">2<i className="formulario-icon bi bi-star-fill"></i></label>
-                        </div>
-
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3" />
-                            <label className="form-check-label" htmlFor="inlineRadio3">3<i className="formulario-icon bi bi-star-fill"></i></label>
-                        </div>
-
-                        <div className="form-check form-check-inline">
-                          <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4" />
-                          <label className="form-check-label" htmlFor="inlineRadio4">4<i className="formulario-icon bi bi-star-fill"></i></label>
-                        </div>
-
-                        <div className="form-check form-check-inline">
-                          <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="5" />
-                          <label className="form-check-label" htmlFor="inlineRadio5">5<i className="formulario-icon bi bi-star-fill"></i></label>
-                        </div>
-                  </div>
-
-                  <div className="form-check form-switch pr-5">
-                        <label className="formulario-label formulario-label--switch form-check-label fs-6" htmlFor="flexSwitchCheckDefault">Terminado</label>
-                        <input className="form-check-input w-30 h-30" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
-                  </div>
+      {formularioOn ? <Formulario /> : null}
+      
+     {/*  <div className="tarjeta container mx-auto p-4 d-flex flex-column flex-md-row justify-content-between rounded shadow md-mr-10 md-ml-10">
+              <div className="card-body flex-grow-1 ms-3">
+                    <h3 className="tarjeta-h3 card-title fs-2 mb-4">Una corte de rosas y espinas</h3>
+                    <p className="card-text"><strong>Género:</strong> Fantasía</p>
+                    <p className="card-text"><strong>Puntuación:</strong> 5 estrellas⭐</p>  
+                    <p className="card-text"><strong>Progreso:</strong> Leyendo...📖</p>  
+                    <h4 className="tarjeta-h4 fs-5">Sinopsis</h4>
+                    <p className="card-text text-justify">Una corte de rosas y espinas, escrita por Sarah J. Maas, es una novela de fantasía que sigue a Feyre Archeron, una joven cazadora que vive en un mundo dividido entre humanos y criaturas mágicas conocidas como fae. Un día, Feyre mata a un lobo en el bosque, sin saber que era una criatura fae disfrazada. Poco después, Tamlin, un alto fae y señor de la Corte Primavera, la toma como prisionera como castigo por su acción.</p>
+                    <h4 className="tarjeta-h4 fs-5 ">Reseña</h4>
+                    <p className="card-text text-justify">No tenía mucha esperanza con esta saga, pero se ha convertido en un imprescindible en mi estantería, es pura fantasía, con un toque más adulto, o más bien spicy</p> 
+                    <div className="d-grid mt-4 d-md-flex justify-content-md-end">
+                        <button className="tarjeta-boton btn" type="button">Editar</button>
+                    </div>  
               </div>
-          </div>
+      </div> */}
 
-          <div className="d-grid gap-2">
-                <button className="formulario-boton formulario-boton--reset btn btn-primary" type="submmit">Guardar</button>
-          </div>
-  
-      </form>
-
+      <Tarjeta />
 
       <Footer />
     
