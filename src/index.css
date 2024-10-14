@@ -1,6 +1,6 @@
 @font-face {
   font-family: Now;
-  src: url(/public/fonts/Now-Bold.otf);
+  src: url(fonts/Now-Bold.otf);
   font-weight: bold;
   font-style: bold;
 
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: Now;
-  src: url(/public/fonts/Now-Regular.otf);
+  src: url(fonts/Now-Regular.otf);
   font-weight: normal;
   font-style: normal;
 
@@ -63,7 +63,9 @@ body{
 }
 
 
-
+.introduccion{
+  margin-bottom: 100px;
+}
 
 .presentacion{
   color: #124361;
@@ -88,30 +90,47 @@ body{
 
 
 
+.app{
+  background-color: #124361;
+}
 .app-h1{
+  color: #EF7E6B;
   font-family: Bugaki;
+  font-size: 4rem; 
+}
+.app-h3{
+  font-family: Bugaki;
+  color: whitesmoke;
+  font-size: 3rem;
+  max-width: 70%;
+}
+.app-h3--libros{
+  margin-top: 100px;
   color: #124361;
-  font-size: 5rem;
+  font-size: 4rem;
 }
 .app-h5{
   color: #EF7E6B;
   font-weight: bold;
 }
 .app-icon{
-  color: #124361;
- 
+  color: #EF7E6B;
 }
 .app-icon:hover{
   color:  #c9dbe7;
+}
+.app-container{
+  background-color: #FDD28A;
 }
 
 
 
 
 .formulario{
-  background-color: #FDD28A;
+  background-color: #EF7E6B;
   color: #124361;
-  max-width: 65rem; 
+  max-width: 50rem; 
+  max-height: auto;
 }
 .formulario-h1{
   font-family: Bugaki;
@@ -141,14 +160,13 @@ body{
 }
 .formulario-boton--guardar{
   background-color:  #c9dbe7;
-  color: whitesmoke;
+  color: #124361;
 }
 .formulario-boton--guardar:hover{
-  background-color: #EF7E6B;
-}
-.formulario-boton--guardar{
   background-color: #124361;
+  color: #c9dbe7;
 }
+
 
 
 
@@ -157,7 +175,7 @@ body{
 .tarjeta{
   background-color: #c9dbe7;
   color: #124361;
-  max-width: 67rem;
+  max-width: 60rem;
 }
 .tarjeta-img{
   max-width: 350px;
@@ -192,6 +210,7 @@ body{
 }
 .editar-label{
   font-weight: bold;
+  
 }
 .editar-label--option{
   background-color: #FDD28A;
@@ -207,8 +226,7 @@ body{
   color: #124361;
 }
 .editar-icon{
-  color:#c9dbe7;
-  
+  color:#c9dbe7;  
 }
 .editar-boton{
   font-weight: bold;

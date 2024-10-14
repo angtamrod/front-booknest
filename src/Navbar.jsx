@@ -5,7 +5,7 @@ function Navbar() {
 
   return (
 
-    <nav className="nav navbar sticky-top shadow mb-1 rounded text-emphasis-primary">
+    <nav className="nav navbar sticky-top shadow rounded text-emphasis-primary">
         <div className="container">
           {/* <a href="#" className="p-1">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" className="nav-icono bi bi-book-half "  viewBox="0 0 16 16">
@@ -14,7 +14,7 @@ function Navbar() {
           </a>  */}
 
           <a className="navbar-brand mx-auto" href="#">
-            <img className="img-fluid" src="/public/imgs/booknest150.svg" alt="BookNest" width="130" height="130" />
+            <img className="img-fluid" src="/imgs/booknest150.svg" alt="BookNest" width="130" height="130" />
           </a>
 
          {/*  <a href="#" className="nav-enlace pr-2">

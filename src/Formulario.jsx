@@ -6,51 +6,43 @@ function Formulario() {
   return (
     <>
 
-    <form className="formulario container mx-auto m-4 row g-3 shadow g-0 p-5 rounded md-mr-20">
+    <form className="formulario container mx-auto mt-1 mb-5 row g-3 shadow g-0 p-5 rounded md-mr-20">
 
             <h1 className="formulario-h1 text-center">Nueva Lectura</h1>
 
-            <div className="formulario-cuadros col-12">
+            <div className="formulario-cuadros col-12 text-start">
             <label htmlFor="inputAddress" className="formulario-label form-label">Titulo del libro</label>
             <input type="text" className="formulario-inputs form-control" id="inputAddress" placeholder="El guardian entre el centeno..."/>
             </div>
 
-            <div className="formulario-cuadros col-12">
-            <label htmlFor="inputAddress2" className="formulario-label form-label">Sinopsis</label>
-            <textarea className="formulario-inputs form-control" placeholder="Pequeño resumen" id="floatingTextarea"></textarea> 
-            </div>
-
-            <div className="formulario-cuadros col-12">  
+            <div className="formulario-cuadros col-12 text-start">  
             <label htmlFor="inputAddress2" className="formulario-label form-label">Reseña sobre el libro</label>
             <textarea className="formulario-inputs form-control" placeholder="Deja tu opinión aquí" id="floatingTextarea"></textarea> 
             </div>
 
-
             <div className="input-group mb-1">
                 <select className=" form-select" id="inputGroupSelect02">
                     <option selected>Elige la temática...</option>
-                    <option value="Ciencia Ficción">Ciencia Ficción</option>
-                    <option value="Fantasía">Fantasía</option>
-                    <option value="Thriller">Thriller</option>
+                    <option value="Ciencia Ficción">Ciencia Ficción🛸</option>
+                    <option value="Fantasía">Fantasía🪄</option>
+                    <option value="Thriller">Thriller🕵️</option>
                 </select>
                 <label className="formulario-label formulario-label--option input-group-text" htmlFor="inputGroupSelect02">Temática</label>
             </div>
 
             <div className="input-group mb-1">
-                        <label className="formulario-label formulario-label--option input-group-text" htmlFor="inputGroupSelect02">Estado</label>
-                        <select className=" form-select" id="inputGroupSelect02">
-                            <option selected>Como vas con el libro...</option>
-                            <option value="Sin empezar">Sin empezar</option>
-                            <option value="Empezado">Empezado</option>
-                            <option value="Terminado">Terminado</option>
-                        </select>
-                    </div>
+                <label className="formulario-label formulario-label--option input-group-text" htmlFor="inputGroupSelect02">Estado</label>
+                <select className=" form-select" id="inputGroupSelect02">
+                      <option selected>Como vas con el libro...</option>
+                      <option value="Sin empezar">Sin empezar</option>
+                      <option value="Empezado">Empezado</option>
+                      <option value="Terminado">Terminado</option>
+                </select>
+            </div>
 
-
-
-            <div className="col-12 mb-3">
+            <div className="col-12 mt-2 mb-3 text-start">
                 <label className="formulario-label form-label mb-2">Calificación del libro:</label>
-                <div className="d-flex justify-content-between">
+                <div className="d-flex justify-content-start">
                     <div className="grid text-center">
                         <div className="form-check form-check-inline">
                             <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" />

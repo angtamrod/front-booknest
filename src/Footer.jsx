@@ -6,7 +6,7 @@ function Footer() {
   return (
     <>
 
-    <footer className="footer p-4 py-4 mt-5 ">
+    <footer className="footer p-4 py-4 ">
       <div className="container">
         <div className="row">
           {/* Columna de Información */}
