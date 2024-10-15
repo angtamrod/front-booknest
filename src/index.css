@@ -58,13 +58,20 @@ body{
 
 .foto-texto{
   font-family: Bugaki;
-  background-color: #124361;
+  background-color: #EF7E6B;
   text-decoration: none;
+  color: #124361;
 }
 
 
 .introduccion{
   margin-bottom: 100px;
+}
+.introduccion-h3{
+  font-family: Bugaki;
+  margin-top: 100px;
+  color: #124361;
+  font-size: 4rem;
 }
 
 .presentacion{
