@@ -9,7 +9,7 @@ function Tarjeta() {
   return (
     <>
 
-    { editar ? <form className="tarjeta fs-6 p-2 container mt-2 mx-auto mb-4 row g-3 shadow g-0 rounded md-mr-20">
+    { editar ? <form className="tarjeta fs-6 p-3 container mt-2 mx-auto mb-4 row g-3 shadow g-0 rounded md-mr-20">
                 <h1 className="editar-h1 text-center">Editar</h1>
 
                 <div className="editar-cuadros col-12">

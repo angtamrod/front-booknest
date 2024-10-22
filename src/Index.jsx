@@ -1,3 +1,8 @@
+import { Link } from "react-router-dom";
+
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
 
 function Index() {
 
@@ -5,11 +10,13 @@ function Index() {
   return (
 
     <>
-
+    
+    <Navbar />
 
     <section className="foto container-fluid d-flex align-items-center justify-content-center vh-100 vw-100 mb-4 mt-0 rounded">
-          <button className="foto-texto text-light card p-4 bg-opacity-50 shadow rounded-pill" href="#">
-              <h1 className="fs-1 text-center">Comienza con BookNest</h1>
+          <button className="foto-texto text-light card p-4 bg-opacity-50 shadow rounded-pill">
+              
+              <Link to="/bookshelf" className="text-decoration-none"><h1 className="foto-link fs-1 text-center">Comienza con BookNest</h1></Link>
           </button>
     </section>
 
@@ -54,7 +61,9 @@ function Index() {
                       </div> 
                   </div>
               </div>
-          </section> 
+          </section>
+
+      <Footer /> 
 
     </>
  

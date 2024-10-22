@@ -1,7 +1,15 @@
-
-
+import { useEffect } from "react";
 
 function Registro() {
+
+    //CHAT GPT
+    useEffect(() => {
+        
+        document.body.style.backgroundColor = "#c9dbe7";
+        return () => {
+          document.body.style.backgroundColor = "";
+        };
+      }, []);
 
 
   return (
@@ -18,15 +26,15 @@ function Registro() {
             <h1 className="registro-h1 p-3 container fs-1 text-center mx-auto  mb-1">Sign in</h1>
             <div className="mb-2">
                 <label htmlFor="registroEmail" className="registro-label form-label">Nombre</label>
-                <input type="text" className="form-control" id="registroName" aria-describedby="emailHelp" />
+                <input type="text" className="form-control" id="registroName" />
             </div>
             <div className="mb-2">
                 <label htmlFor="registroEmail" className="registro-label form-label">Dirección de correo electrónico</label>
-                <input type="email" className="form-control" id="registroEmail" aria-describedby="emailHelp" />
+                <input type="email" className="form-control" id="registroEmail" />
             </div>
             <div className="mb-2">
                 <label htmlFor="registroPassword1" className="registro-label form-label">Contraseña</label>
-                <input type="password" className="form-control" id="registroPassword1" />
+                <input type="password" className="form-control" id="registroPassword" />
             </div>
             <button type="submit" className="registro-btn btn">Enviar</button>
         </form>   
