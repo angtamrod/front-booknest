@@ -14,24 +14,6 @@
 
 }
 
-/* @font-face {
-  font-family: Bugaki;
-  src: url(/public/fonts/Bugaki.ttf);
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Bugaki;
-  src: url(/public/fonts/Bugaki\ Oblique.ttf);
-  font-weight: normal;
-  font-style: italic;
-} */
-
-
-
-
-
 
 
 body{
@@ -41,16 +23,26 @@ body{
   
 }
 
+/*Utilidades*/
+.text-justify{
+  text-align: justify;
+}
 
+
+
+
+/*Nav.jsx*/
 .nav{
   background-color:  #c9dbe7;
 }
 .nav-icono{
-  color: #124361;
+  color: #EF7E6B;
 }
 
 
 
+
+/*Index.jsx*/
 .foto{
   background-image: url(/imgs/fondo3.webp);
   background-repeat: repeat;
@@ -58,11 +50,9 @@ body{
 
 .foto-texto{
   font-family: Bugaki;
-  background-color: #EF7E6B;
+  background-color: #124361;
   text-decoration: none;
-  color: #124361;
 }
-
 
 .introduccion{
   margin-bottom: 100px;
@@ -78,25 +68,26 @@ body{
   color: #124361;
   font-weight: 500;
 }
-
 .presentacion-h1{
   font-family: Bugaki; 
 }
-
-
-
-.explicacion{
+.presentacion-img{
+  max-width: 80%;
+  height: auto;
+}
+.presentacion--azul{
   background-color: #124361;
   color: whitesmoke;
-} 
-
-.explicacion--amarillo{
+}
+.presentacion--amarillo{
   background-color: #FDD28A;
   color: #124361;
 }
 
 
 
+
+/*App.jsx*/
 .app{
   background-color: #124361;
 }
@@ -133,6 +124,7 @@ body{
 
 
 
+/*Formulario.jsx*/
 .formulario{
   background-color: #EF7E6B;
   color: #124361;
@@ -178,7 +170,7 @@ body{
 
 
 
-
+/*Tarjeta.jsx*/
 .tarjeta{
   background-color: #c9dbe7;
   color: #124361;
@@ -211,13 +203,11 @@ body{
 }
 
 
-
 .editar-h1{
   font-family: Bugaki;
 }
 .editar-label{
-  font-weight: bold;
-  
+  font-weight: bold; 
 }
 .editar-label--option{
   background-color: #FDD28A;
@@ -245,22 +235,91 @@ body{
 .editar-boton--guardar:hover{
   background-color: #EF7E6B;
 }
-
 .editar-boton--guardar{
   background-color: #124361;
 }
 
 
 
-.text-justify{
-  text-align: justify;
+/*Login.jsx */
+.login{
+  background-color: #FDD28A;
+  max-width: 100vw;
+  color: #124361;
+}
+.login-form{
+  max-width: 80%;
+  background-color: #c9dbe7;
+}
+.login-label{
+  font-weight: bold;
+}
+.login-btn{
+  background-color: #124361;
+  color: whitesmoke;
+  font-weight: bold;
+}
+.login-btn:hover{
+  background-color: #FDD28A;
+  color: #124361;
+}
+.login-btn--registro{
+  background-color: #EF7E6B;
+
+}
+.login-img{
+  max-width: 200px;
+  height: auto;
+}
+.login-span{
+  background-color: #EF7E6B;
+  color: white;
+  font-weight: bold;
+}
+
+
+
+
+/*Registro.jsx */
+.registro{
+  background-color: #c9dbe7;
+  width: 100%;
+  max-width: 100vw;
+  color: #124361;
+  min-height: 100vh;
+}
+.registro-form{
+  max-width: 80%;
+  background-color: #EF7E6B;
+}
+.registro-label{
+  font-weight: bold;
+}
+.registro-btn{
+  background-color: #124361;
+  color: whitesmoke;
+}
+.registro-btn:hover{
+  background-color: #c9dbe7;
+  color: #124361;
+}
+.registro-h1{
+  font-family: Bugaki;
+  color: #124361;
+  text-decoration: underline;
+  font-size: 3rem;
+  max-width: 70%;
+}
+.registro-img{
+  max-width: 200px;
+  height: auto;
 }
 
 
 
 
 
-
+/*Footer.jsx */
 .footer{
   background-color: #EF7E6B;
   color: #124361;

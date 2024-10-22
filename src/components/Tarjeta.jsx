@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+
 function Tarjeta() {
 
     let [editar,setEditar] = useState(false)
@@ -84,7 +85,7 @@ function Tarjeta() {
                         >{ editar ? "Guardar" : "Editar"}</button>
                         <button className="tarjeta-boton tarjeta-boton--borrar btn" type="button">Borrar</button>
                     </div> 
-                </form>
+                </form> 
       
       : <div className="tarjeta fs-6 container mx-auto mt-2 mb-4 p-4 d-flex flex-column flex-md-row justify-content-between rounded shadow md-mr-10 md-ml-10">
               <div className="card-body flex-grow-1 ms-3">
