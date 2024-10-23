@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-
+import { useState,useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 function Registro() {
 
     //CHAT GPT
@@ -12,6 +12,14 @@ function Registro() {
       }, []);
 
 
+    let [nombre, setNombre] = useState("")
+    let [email, setEmail] = useState("")
+    let [password, setPassword] = useState("")
+
+    const navigate = useNavigate();
+
+
+    
   return (
 
     <>
@@ -22,19 +30,38 @@ function Registro() {
                 <img src="/imgs/booknestazul150.png" className="login-img img-fluid" alt="Logo para el login" /> 
         </div>
        
-        <form className="registro-form container-xl mx-auto mt-1 mb-5 row p-5 g-4 shadow g-0 p-5 rounded md-mr-20">
+            <form className="registro-form container-xl mx-auto mt-1 mb-5 row p-5 g-4 shadow g-0 p-5 rounded md-mr-20" onSubmit={ (evento) => {
+                evento.preventDefault()
+                fetch("",{
+                    method : "POST",
+                    body : JSON.stringify({nombre, email, password}),
+                    headers : {
+                        "Content-type" : "application/json"
+                    }
+                })
+                .then(respuesta => respuesta.json())
+                .then((usuario) => {
+                    console.log("Usuario registrado correctamente", usuario);
+                    alert("Usuario registrado correctamente");
+                    navigate('/');
+                    
+                }).catch((error) => {
+                    console.error("Error al registrar el usuario", error);
+                    alert("Hubo un problema al registrar el usuario")
+                });
+        }}>
             <h1 className="registro-h1 p-3 container fs-1 text-center mx-auto  mb-1">Sign in</h1>
             <div className="mb-2">
-                <label htmlFor="registroEmail" className="registro-label form-label">Nombre</label>
-                <input type="text" className="form-control" id="registroName" />
+                <label htmlFor="registroEmail" className="registro-label form-label" >Nombre</label>
+                <input type="text" className="form-control" id="registroName" value={nombre} onChange={(evento) => setNombre(evento.target.value)} />
             </div>
             <div className="mb-2">
                 <label htmlFor="registroEmail" className="registro-label form-label">Dirección de correo electrónico</label>
-                <input type="email" className="form-control" id="registroEmail" />
+                <input type="email" className="form-control" id="registroEmail" value={email} onChange={(evento) => setEmail(evento.target.value)} />
             </div>
             <div className="mb-2">
                 <label htmlFor="registroPassword1" className="registro-label form-label">Contraseña</label>
-                <input type="password" className="form-control" id="registroPassword" />
+                <input type="password" className="form-control" id="registroPassword" value={password} onChange={(evento) => setPassword(evento.target.value)} />
             </div>
             <button type="submit" className="registro-btn btn">Enviar</button>
         </form>   

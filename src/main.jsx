@@ -10,11 +10,16 @@ import Index from './Index.jsx';
 import App from './App.jsx';
 import Registro from './Registro';
 import Login from './Login.jsx';
+import RutaProtegida from './components/RutaProtegida.jsx';
 
 const router = createBrowserRouter([
   {
     path : "/",
-    element : <Index />,
+    element : (
+      <RutaProtegida>
+          <Index />  
+      </RutaProtegida>
+    ),
     errorElement : <h1>Error 404</h1>
   },
   {
@@ -35,10 +40,6 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {/* <App /> 
-    <Login />
-   <Registro /> */}
-
     <RouterProvider router={router} />
   </StrictMode>,
 )
