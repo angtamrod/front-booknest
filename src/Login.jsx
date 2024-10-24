@@ -42,7 +42,7 @@ function Login() {
                 .then((usuario) => {
                     console.log("Usuario registrado correctamente", usuario);
                     const { token } = usuario;
-                    localStorage.setItem("token", token);
+                    sessionStorage.setItem("token", token);
                     navigate('/');
                     
                 }).catch((error) => {
