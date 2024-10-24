@@ -22,9 +22,14 @@ function Login() {
 
     <>
 
-    <main className="login d-flex row justify-content-center align-items-center ">
+    <main className="login d-flex flex-column m-4 justify-content-start align-items-center w-90 min-vh-100">
 
-        <form className="login-form container mx-auto row p-2 g-4 shadow g-0 p-4 rounded md-mr-20" onSubmit={ (evento) => {
+        <div className="text-center w-10 h-auto mt-4">
+                <img src="/imgs/booknestazul150.png" className="login-img img-fluid" alt="Logo de booknest" /> 
+        </div>
+       
+
+        <form className="login-form container-sm w-80 d-flex flex-column justify-content-center align-items-center mx-auto row g-3 shadow m-2 p-4 rounded" onSubmit={ (evento) => {
                 evento.preventDefault()
                 fetch("",{
                     method : "POST",
@@ -45,21 +50,20 @@ function Login() {
                     alert("Los datos introducidos incorrectos")
                 });
         }}>
-
-            <div className="text-center w-10 h-auto pt-1">
-                <img src="/imgs/booknest300.png" className="login-img img-fluid" alt="Logo de booknest" /> 
-            </div>
-       
-            <div className="mb-2">
+            <h1 className="registro-h1 p-3 container fs-1 text-center mx-auto  mb-1">Login</h1>
+            
+            <div className="mb-1 w-60">
                 <label htmlFor="loginEmail" className="login-label pl-2 form-label">Email</label>
-                <input type="email" className="login-input form-control" id="loginEmail" aria-describedby="emailHelp" value={email} onChange={(evento) => setEmail(evento.target.value)} />
+                <input type="email" placeholder="tu.email@aquí.com" className="login-input form-control" id="loginEmail" aria-describedby="emailHelp" value={email} onChange={(evento) => setEmail(evento.target.value)} />
             </div>
-            <div className="mb-2">
+            <div className="mb-2 w-60">
                 <label htmlFor="loginPassword1" className="login-label form-label">Password</label>
-                <input type="password" className="form-control" id="loginPassword1" value={password} onChange={(evento) => setPassword(evento.target.value)} />
+                <input type="password" placeholder="*************" className="form-control" id="loginPassword1" value={password} onChange={(evento) => setPassword(evento.target.value)} />
             </div>
-            <button type="button" className="login-btn login-btn--registro btn"><Link to="/registro" className="login-link text-decoration-none">Regístrate</Link></button>
-            <button type="submit" className="login-btn btn">Iniciar sesión</button>
+            <div className="d-flex justify-content-end gap-2 w-80 mt-4">
+                <Link to="/registro" className="login-link login-btn login-btn--registro btn btn-primary text-decoration-none">Regístrate</Link>
+                <button type="submit" className="login-btn btn">Iniciar sesión</button>
+            </div>
         </form>   
        
     </main>

@@ -24,13 +24,13 @@ function Registro() {
 
     <>
 
-    <main className="registro d-flex row  p-3 justify-content-center align-items-center min-vh-100">
+    <main className="registro flex-column d-flex m-4 justify-content-center align-items-center  w-90 min-vh-100">
 
-        <div className="text-center w-10 h-auto ">
-                <img src="/imgs/booknestazul150.png" className="login-img img-fluid" alt="Logo para el login" /> 
-        </div>
+            <div className="text-center w-10 h-auto ">
+                    <img src="/imgs/booknest150.png" className="login-img img-fluid" alt="Logo para el login" /> 
+            </div>
        
-            <form className="registro-form container-xl mx-auto mt-1 mb-5 row p-5 g-4 shadow g-0 p-5 rounded md-mr-20" onSubmit={ (evento) => {
+            <form className="registro-form container-sm mx-auto mt-1 mb-2 row g-3 shadow p-5 rounded " onSubmit={ (evento) => {
                 evento.preventDefault()
                 fetch("",{
                     method : "POST",
@@ -43,27 +43,29 @@ function Registro() {
                 .then((usuario) => {
                     console.log("Usuario registrado correctamente", usuario);
                     alert("Usuario registrado correctamente");
-                    navigate('/');
+                    navigate('/login');
                     
                 }).catch((error) => {
                     console.error("Error al registrar el usuario", error);
                     alert("Hubo un problema al registrar el usuario")
                 });
         }}>
-            <h1 className="registro-h1 p-3 container fs-1 text-center mx-auto  mb-1">Sign in</h1>
-            <div className="mb-2">
-                <label htmlFor="registroEmail" className="registro-label form-label" >Nombre</label>
-                <input type="text" className="form-control" id="registroName" value={nombre} onChange={(evento) => setNombre(evento.target.value)} />
+            <h1 className="registro-h1 p-3 container fs-1 text-center mx-auto  mb-1">Registro</h1>
+            
+            
+            <div className="mb-1">
+                <label htmlFor="registroEmail" className="registro-label form-label" >Nombre de usuario</label>
+                <input type="text" placeholder="Elige un nombre único (sé tú mismo)" className="form-control" id="registroName" value={nombre} onChange={(evento) => setNombre(evento.target.value)} />
             </div>
-            <div className="mb-2">
+            <div className="mb-1">
                 <label htmlFor="registroEmail" className="registro-label form-label">Dirección de correo electrónico</label>
-                <input type="email" className="form-control" id="registroEmail" value={email} onChange={(evento) => setEmail(evento.target.value)} />
+                <input type="email" placeholder="¡No te preocupes, no haremos spam!" className="form-control" id="registroEmail" value={email} onChange={(evento) => setEmail(evento.target.value)} />
             </div>
-            <div className="mb-2">
+            <div className="mb-1">
                 <label htmlFor="registroPassword1" className="registro-label form-label">Contraseña</label>
-                <input type="password" className="form-control" id="registroPassword" value={password} onChange={(evento) => setPassword(evento.target.value)} />
+                <input type="password" placeholder="No uses tu fecha de cumpleaños 🙃" className="form-control" id="registroPassword" value={password} onChange={(evento) => setPassword(evento.target.value)} />
             </div>
-            <button type="submit" className="registro-btn btn">Enviar</button>
+            <button type="submit" className="registro-btn btn">Sign in</button>
         </form>   
        
     </main>

@@ -250,7 +250,7 @@ body{
   color: #124361;
 }
 .login-form{
-  max-width: 500px;
+  max-width: 450px;
   background-color: #c9dbe7;
 }
 .login-label{
@@ -290,7 +290,7 @@ body{
   color: #124361; 
 }
 .registro-form{
-  max-width: 450px;
+  max-width: 430px;
   max-height: auto;
   background-color: #EF7E6B;
 }
@@ -314,7 +314,7 @@ body{
   max-width: 70%;
 }
 .registro-img{
-  max-width: 200px;
+  max-width: 150px;
   height: auto;
 }
 
