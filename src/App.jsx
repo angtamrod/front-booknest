@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect,useState } from "react";
 
 import Footer from "./components/Footer.jsx";
 import Navbar from "./components/Navbar.jsx";
@@ -9,6 +9,16 @@ import Tarjeta from "./components/Tarjeta.jsx";
 function App() {
 
     let [formularioOn,setFormularioOn] = useState(false);
+
+    let [libros,setLibros] = useState([])
+
+    useEffect(() => {
+        fetch("http://localhost:3000/api/libros")
+        .then(respuesta => respuesta.json())
+        .then(libros => {
+          setLibros(libros) 
+        })
+      }, []) 
 
   
   return (
@@ -35,13 +45,14 @@ function App() {
         </section>
         
         <section className="app-container gap-4 pb-4 mx-auto d-flex flex-column justify-content-center align-items-center">
-            {/* <h3 className="app-h3 app-h3--libros p-3 container text-center mx-auto  mb-1">BookList</h3> */}
             <div className=" container gap-1 mt-4 pb-3 mx-auto d-flex flex-column justify-content-center align-items-center">
-                <Tarjeta />
-
-                <Tarjeta />
-
-                <Tarjeta />
+            { libros.map( ({id,titulo,opinion,tematica,progreso,puntuacion}) => <Tarjeta key={id} 
+                                                                                          id={id} 
+                                                                                          titulo={titulo}                                           opinion={opinion} 
+                                                                                          tematica={tematica}
+                                                                                          progreso={progreso}
+                                                                                          puntuacion={puntuacion}/>
+             ) } 
             </div>
         </section>
 

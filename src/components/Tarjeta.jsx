@@ -1,9 +1,10 @@
-import { useState } from "react";
+import {  useState } from "react";
 
 
-function Tarjeta() {
+function Tarjeta({titulo,opinion,tematica,progreso,puntuacion}) {
 
     let [editar,setEditar] = useState(false)
+    
 
   
   return (
@@ -89,12 +90,12 @@ function Tarjeta() {
       
       : <div className="tarjeta fs-6 container mx-auto mt-2 mb-4 p-4 d-flex flex-column flex-md-row justify-content-between rounded shadow md-mr-10 md-ml-10">
               <div className="card-body flex-grow-1 ms-3">
-                    <h3 className="tarjeta-h3 card-title fs-2 mb-4">Una corte de rosas y espinas</h3>
-                    <p className="card-text"><strong>Género:</strong> Fantasía</p>
-                    <p className="card-text"><strong>Puntuación:</strong> 5 estrellas⭐</p>  
-                    <p className="card-text"><strong>Progreso:</strong> Leyendo...📖</p>  
+                    <h3 className="tarjeta-h3 card-title fs-2 mb-4"> {titulo}</h3>
+                    <p className="card-text"><strong>Género:</strong> {tematica}</p>
+                    <p className="card-text"><strong>Puntuación:</strong> {puntuacion} estrellas ⭐</p>  
+                    <p className="card-text"><strong>Progreso:</strong> {progreso}...📖</p>  
                     <h4 className="tarjeta-h4 fs-5 ">Reseña</h4>
-                    <p className="card-text text-justify">No tenía mucha esperanza con esta saga, pero se ha convertido en un imprescindible en mi estantería, es pura fantasía, con un toque más adulto, o más bien spicy</p> 
+                    <p className="card-text text-justify">{opinion}</p> 
                     <div className="d-grid gap-1 mt-4 d-md-flex justify-content-md-end">
                         <button className="tarjeta-boton btn me-md-2" type="button"
                                 onClick={() => {setEditar(!editar)}}

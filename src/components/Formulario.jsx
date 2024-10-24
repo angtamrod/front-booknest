@@ -23,10 +23,15 @@ function Formulario() {
 
             <div className="input-group mb-1">
                 <select className=" form-select" id="inputGroupSelect02">
-                    <option selected>Elige la temática...</option>
-                    <option value="Ciencia Ficción">Ciencia Ficción🛸</option>
-                    <option value="Fantasía">Fantasía🪄</option>
-                    <option value="Thriller">Thriller🕵️</option>
+                        <option selected>Elige la temática...</option>
+                        <option value="Ciencia Ficción">Ciencia Ficción🛸</option>
+                        <option value="Fantasía">Fantasía🧙‍♂️</option>
+                        <option value="Thriller">Thriller🕵️</option>
+                        <option value="Historica">Histórica📚</option>
+                        <option value="Terror">Terror👻</option>
+                        <option value="Poesia">Poesía🌹</option>
+                        <option value="Romance">Romance💖</option>
+                        <option value="No ficcion">No ficción👩‍🎓</option>
                 </select>
                 <label className="formulario-label formulario-label--option input-group-text" htmlFor="inputGroupSelect02">Temática</label>
             </div>
