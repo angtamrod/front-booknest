@@ -251,7 +251,7 @@ body{
 }
 .login-form{
   max-width: 450px;
-  background-color: #c9dbe7;
+  background-color: #EF7E6B;
 }
 .login-label{
   font-weight: bold;
@@ -262,24 +262,23 @@ body{
   font-weight: bold;
 }
 .login-btn:hover{
-  background-color: #FDD28A;
+  background-color: #c9dbe7;
   color: #124361;
 }
 .login-btn--registro{
-  background-color: #EF7E6B;
+  background-color: #c9dbe7;
 }
-.login-btn--registro:hover{
-  color: #124361;
-}
+
 .login-img{
   max-width: 130px;
   height: auto;
 }
 .login-link{
-  color: whitesmoke;
+  color: #124361;
 }
 .login-link:hover{
-  color: #124361;
+  color: whitesmoke;
+  background-color: #124361;
 }
 
 
@@ -292,7 +291,7 @@ body{
 .registro-form{
   max-width: 430px;
   max-height: auto;
-  background-color: #EF7E6B;
+  background-color: #c9dbe7;
 }
 .registro-label{
   font-weight: bold;
@@ -303,7 +302,7 @@ body{
   font-weight: bold;
 }
 .registro-btn:hover{
-  background-color: #c9dbe7;
+  background-color: #EF7E6B;
   color: #124361;
 }
 .registro-h1{

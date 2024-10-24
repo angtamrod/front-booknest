@@ -8,7 +8,7 @@ function Login() {
 
     useEffect(() => {
         
-        document.body.style.backgroundColor = "#EF7E6B";
+        document.body.style.backgroundColor = "#c9dbe7";
         return () => {
           document.body.style.backgroundColor = "";
         };
@@ -22,10 +22,10 @@ function Login() {
 
     <>
 
-    <main className="login d-flex flex-column m-4 justify-content-start align-items-center w-90 min-vh-100">
+    <main className="login d-flex flex-column m-4 justify-content-start p-2 align-items-center w-90 min-vh-100">
 
         <div className="text-center w-10 h-auto mt-4">
-                <img src="/imgs/booknestazul150.png" className="login-img img-fluid" alt="Logo de booknest" /> 
+                <img src="/imgs/booknest150.png" className="login-img img-fluid" alt="Logo de booknest" /> 
         </div>
        
 
@@ -52,7 +52,7 @@ function Login() {
         }}>
             <h1 className="registro-h1 p-3 container fs-1 text-center mx-auto  mb-1">Login</h1>
             
-            <div className="mb-1 w-60">
+            <div className="w-60">
                 <label htmlFor="loginEmail" className="login-label pl-2 form-label">Email</label>
                 <input type="email" placeholder="tu.email@aquí.com" className="login-input form-control" id="loginEmail" aria-describedby="emailHelp" value={email} onChange={(evento) => setEmail(evento.target.value)} />
             </div>
@@ -60,7 +60,7 @@ function Login() {
                 <label htmlFor="loginPassword1" className="login-label form-label">Password</label>
                 <input type="password" placeholder="*************" className="form-control" id="loginPassword1" value={password} onChange={(evento) => setPassword(evento.target.value)} />
             </div>
-            <div className="d-flex justify-content-end gap-2 w-80 mt-4">
+            <div className="d-flex justify-content-end gap-2 w-80 mt-4 pb-3">
                 <Link to="/registro" className="login-link login-btn login-btn--registro btn btn-primary text-decoration-none">Regístrate</Link>
                 <button type="submit" className="login-btn btn">Iniciar sesión</button>
             </div>

@@ -5,7 +5,7 @@ function Registro() {
     //CHAT GPT
     useEffect(() => {
         
-        document.body.style.backgroundColor = "#c9dbe7";
+        document.body.style.backgroundColor = "#EF7E6B";
         return () => {
           document.body.style.backgroundColor = "";
         };
@@ -27,7 +27,7 @@ function Registro() {
     <main className="registro flex-column d-flex m-4 justify-content-center align-items-center  w-90 min-vh-100">
 
             <div className="text-center w-10 h-auto ">
-                    <img src="/imgs/booknest150.png" className="login-img img-fluid" alt="Logo para el login" /> 
+                    <img src="/imgs/booknestazul150.png" className="login-img img-fluid" alt="Logo para el login" /> 
             </div>
        
             <form className="registro-form container-sm mx-auto mt-1 mb-2 row g-3 shadow p-5 rounded " onSubmit={ (evento) => {
@@ -65,7 +65,7 @@ function Registro() {
                 <label htmlFor="registroPassword1" className="registro-label form-label">Contraseña</label>
                 <input type="password" placeholder="No uses tu fecha de cumpleaños 🙃" className="form-control" id="registroPassword" value={password} onChange={(evento) => setPassword(evento.target.value)} />
             </div>
-            <button type="submit" className="registro-btn btn">Sign in</button>
+            <button type="submit" className="registro-btn btn">Guardar</button>
         </form>   
        
     </main>
