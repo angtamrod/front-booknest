@@ -32,7 +32,7 @@ function Registro() {
        
             <form className="registro-form container-sm mx-auto mt-1 mb-2 row g-3 shadow p-5 rounded " onSubmit={ (evento) => {
                 evento.preventDefault()
-                fetch("",{
+                fetch("http://localhost:3000/api/registro",{
                     method : "POST",
                     body : JSON.stringify({nombre, email, password}),
                     headers : {
