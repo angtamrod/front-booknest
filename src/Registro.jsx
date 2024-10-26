@@ -39,7 +39,11 @@ function Registro() {
                         "Content-type" : "application/json"
                     }
                 })
-                .then(respuesta => respuesta.json())
+                .then((respuesta) => {
+                    if(!respuesta.ok) {
+                        alert("Error en el servidor");
+                    }return respuesta.json()
+                })
                 .then((usuario) => {
                     console.log("Usuario registrado correctamente", usuario);
                     alert("Usuario registrado correctamente");

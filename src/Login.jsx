@@ -31,6 +31,11 @@ function Login() {
 
         <form className="login-form container-sm w-80 d-flex flex-column justify-content-center align-items-center mx-auto row g-3 shadow m-2 p-4 rounded" onSubmit={ (evento) => {
                 evento.preventDefault()
+
+                if(!email || !password){
+                    alert("Por favor completa todos los campos ")
+                    return;
+                }
                 fetch("http://localhost:3000/api/login",{
                     method : "POST",
                     body : JSON.stringify({ email, password }),
@@ -40,14 +45,19 @@ function Login() {
                 })
                 .then(respuesta => respuesta.json())
                 .then((usuario) => {
-                    console.log("Usuario registrado correctamente", usuario);
-                    const { token } = usuario;
+                    console.log("Respuesta del servidor", usuario);
+                    let { token,user } = usuario;
+                    if(!token|| !user){
+                        alert("Hubo un problema con el inicio de sesion. Verifica tus credenciales")
+                        return;
+                    }  
                     sessionStorage.setItem("token", token);
+                    sessionStorage.setItem("usuario_id",user.id);
                     navigate('/');
                     
                 }).catch((error) => {
                     console.error("Datos incorrectos", error);
-                    alert("Los datos introducidos incorrectos")
+                    alert("Los datos introducidos incorrectos");
                 });
         }}>
             <h1 className="registro-h1 p-3 container fs-1 text-center mx-auto  mb-1">Login</h1>

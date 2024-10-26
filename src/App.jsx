@@ -20,6 +20,34 @@ function App() {
         })
       }, []) 
 
+      function nuevoLibro(libro){
+        setLibros([...libros,libro])
+      }
+
+      function borrarLibro(id){
+        setLibros(libros.filter( libros => {
+          return libros.id != id
+        }))
+      }
+    
+      function actualizarEstado(id){
+        setTareas(tareas.map( tarea => {
+            if(tarea.id == id){
+              tarea.terminada = !tarea.terminada
+            }
+            return tarea
+        }))
+      }
+      function actualizarTexto(id,texto){
+        setTareas(tareas.map(tarea => {
+          if(tarea.id == id){
+            tarea.tarea = texto
+          }
+          return tarea
+    
+        }))
+      }
+    
   
   return (
     <>
@@ -41,7 +69,7 @@ function App() {
                       }}
               >{ formularioOn ? <i className="app-icon fs-1 p-6 bi bi-arrow-up-circle-fill"></i> : <i className="app-icon fs-1 p-6 bi bi-plus-circle-fill"></i> }</button>
 
-              {formularioOn ? <Formulario /> : null}
+              {formularioOn ? <Formulario nuevoLibro={nuevoLibro} /> : null}
         </section>
         
         <section className="app-container gap-4 pb-4 mx-auto d-flex flex-column justify-content-center align-items-center">
@@ -51,7 +79,8 @@ function App() {
                                                                                           titulo={titulo}                                           opinion={opinion} 
                                                                                           tematica={tematica}
                                                                                           progreso={progreso}
-                                                                                          puntuacion={puntuacion}/>
+                                                                                          puntuacion={puntuacion}
+                                                                                          borrarLibro={borrarLibro}/>
              ) } 
             </div>
         </section>
