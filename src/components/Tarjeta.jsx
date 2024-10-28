@@ -150,11 +150,11 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
 
     let [editar,setEditar] = useState(false)
 
-    let [nuevoTitulo,setNuevoTitulo] = useState("")
-    let [nuevaOpinion,setNuevaOpinion] = useState("")
-    let [nuevaTematica,setNuevaTematica] = useState("")
-    let [nuevoProgreso,setNuevoProgreso] = useState("")
-    let [nuevaPuntuacion,setNuevaPuntuacion] = useState("")
+    let [nuevoTitulo,setNuevoTitulo] = useState(titulo)
+    let [nuevaOpinion,setNuevaOpinion] = useState(opinion)
+    let [nuevaTematica,setNuevaTematica] = useState(tematica)
+    let [nuevoProgreso,setNuevoProgreso] = useState(progreso)
+    let [nuevaPuntuacion,setNuevaPuntuacion] = useState(puntuacion)
    
 
     let funcionActualizarLibro = () => {
@@ -204,8 +204,6 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
             } 
 
             
-
-            
     }
     
   
@@ -237,7 +235,7 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
                                     </select>
                         
                                 </div>) 
-                             : <p className="card-text fs-5"><strong>Género:</strong> {tematica}</p> }
+                             : <p className="card-text"><strong className="fs-5">Género:</strong> {tematica}</p> }
 
                     { editar ? (<div className="d-flex justify-content-center m-3">
                                     <div className="grid text-center">
@@ -272,19 +270,19 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
                                         </div>
                                     </div>
                                 </div>) 
-                             : <p className="card-text fs-5"><strong>Puntuación:</strong> {puntuacion} estrellas ⭐</p> }
+                             : <p className="card-text"><strong className="fs-5">Puntuación:</strong> {puntuacion} estrellas ⭐</p> }
                     
                     { editar ? (<div className="input-group mb-2">
                                     <label className="editar-label editar-label--option input-group-text" htmlFor="inputGroupSelect02">Progreso</label>
                                     <select className=" form-select" id="inputGroupSelect02"  value={nuevoProgreso}
                                             onChange={(evento) => setNuevoProgreso(evento.target.value)}>
                                         <option value="">Cambia tu progreso...</option>
-                                        <option value="Sin empezar">Sin empezar</option>
-                                        <option value="Empezado">Empezado</option>
-                                        <option value="Terminado">Terminado</option>
+                                        <option value="Sin empezar 🫢">Sin empezar 🫢</option>
+                                        <option value="Estoy en ello...📖">Estoy en ello...📖</option>
+                                        <option value="Terminado ✌️">Terminado ✌️</option>
                                     </select>
                                 </div>) 
-                             : <p className="card-text fs-5"><strong>Progreso:</strong> {progreso}</p> }  
+                             : <p className="card-text"><strong className="fs-5">Progreso:</strong> {progreso}</p> }  
                     { editar ? "" : <h3 className="tarjeta-h3 fs-5 ">Reseña</h3>}  
                     { editar ? (<div className="editar-cuadros col-12 mt-1 mb-1">  
                                     <textarea className="editar-inputs form-control" placeholder="Todo el mundo puede cambiar de opinión...😉" id="floatingTextarea" value={nuevaOpinion}

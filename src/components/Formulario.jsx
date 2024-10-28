@@ -51,20 +51,20 @@ function Formulario({nuevoLibro}) {
 
             <div className="formulario-cuadros col-12 text-start">
             <label htmlFor="inputAddress" className="formulario-label form-label">Titulo del libro</label>
-            <input type="text" className="formulario-inputs form-control" id="inputAddress" placeholder="El guardian entre el centeno..." 
+            <input type="text" className="formulario-inputs form-control" id="inputAddress" placeholder="Escribe aquí el título del libro... O invéntatelo 😉" 
             value={titulo} onChange={(evento) => setTitulo(evento.target.value)}/>
             </div>
 
             <div className="formulario-cuadros col-12 text-start">  
             <label htmlFor="inputAddress2" className="formulario-label form-label">Reseña sobre el libro</label>
-            <textarea className="formulario-inputs form-control" placeholder="Deja tu opinión aquí" id="floatingTextarea" 
+            <textarea className="formulario-inputs form-control" placeholder="Deja tu opinión aquí, te gustará verla luego, y si no cámbiala 😎" id="floatingTextarea" 
             value={opinion} onChange={(evento) => setOpinion(evento.target.value)}></textarea> 
             </div>
 
             <div className="input-group mb-1">
                 <select className=" form-select" id="inputGroupSelect02" 
                 value={tematica} onChange={(evento) => setTematica(evento.target.value)}>
-                        <option value="">Elige la temática...</option>
+                        <option value="">No te preocupes no juzgamos tus gustos...</option>
                         <option value="Ciencia Ficción🛸">Ciencia Ficción🛸</option>
                         <option value="Fantasía🧙‍♂️">Fantasía🧙‍♂️</option>
                         <option value="Thriller🕵️">Thriller🕵️</option>
@@ -81,10 +81,10 @@ function Formulario({nuevoLibro}) {
             <div className="input-group mb-1">
                 <label className="formulario-label formulario-label--option input-group-text" htmlFor="inputGroupSelect02">Progreso</label>
                 <select className=" form-select" id="inputGroupSelect02" value={progreso} onChange={(evento) => setProgreso(evento.target.value)}>
-                      <option value="">Como vas con el libro...</option>
-                      <option value="Sin empezar">Sin empezar-✋</option>
-                      <option value="Empezado">Empezado...📖</option>
-                      <option value="Terminado">Terminado-✌️</option>
+                      <option value="">Dinos cuanto has leido...</option>
+                      <option value="Sin empezar 🫢">Sin empezar 🫢</option>
+                      <option value="Estoy en ello...📖">Estoy en ello...📖</option>
+                      <option value="Terminado ✌️">Terminado ✌️</option>
                 </select>
             </div>
 

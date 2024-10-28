@@ -1,5 +1,6 @@
 import { useEffect,useState } from "react";
 
+import BotonScroll from "./components/BotonScroll.jsx";
 import Footer from "./components/Footer.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Formulario from "./components/Formulario.jsx";
@@ -59,6 +60,7 @@ function App() {
 
     <Navbar />
     <main>
+        <BotonScroll />
         <section className="app gap-4 pb-3 mx-auto d-flex flex-column justify-content-center align-items-center text-center rounded min-vh-80">
               <div className="max-vw-100 pb-2 mx-auto grid row text-center justify-content-center gap-2 align-items-center">
                     <h1 className="app-h1 row-10 mt-5 p-2 text-center p-3 text-wrap rounded col-md-9 md-w-100">BookShelf</h1>

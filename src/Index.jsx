@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import BotonScroll from "./components/BotonScroll";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -12,7 +12,8 @@ function Index() {
     <>
     
     <Navbar />
-
+    
+    <BotonScroll />
     <section className="foto container-fluid d-flex align-items-center justify-content-center vh-100 vw-100 mb-4 mt-0 rounded">
           <button className="foto-texto text-light card p-4 bg-opacity-50 shadow rounded-pill">
               

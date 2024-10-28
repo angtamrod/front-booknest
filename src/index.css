@@ -68,7 +68,14 @@ body{
 }
 
 
-
+.scroll-button{
+  width: 50px;
+  height: 50px;
+  color: #124361;
+}
+.scroll-button:hover{
+  color: whitesmoke;
+}
 
 
 /*Nav.jsx*/
@@ -220,11 +227,7 @@ body{
   color: #124361;
   max-width: 800px;
 }
-.tarjeta-img{
-  max-width: 350px;
-  height: auto;
-  object-fit: cover;
-}
+
 .tarjeta-h3{
   font-weight: bolder;
   text-decoration: underline;
