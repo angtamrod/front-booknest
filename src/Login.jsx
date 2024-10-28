@@ -33,7 +33,7 @@ function Login() {
                 evento.preventDefault()
 
                 if(!email || !password){
-                    alert("Por favor completa todos los campos ")
+                    alert("Parece que te has dejado algún campo SIN RELLENAR 🔍")
                     return;
                 }
                 fetch("http://localhost:3000/api/login",{
@@ -48,7 +48,7 @@ function Login() {
                     console.log("Respuesta del servidor", usuario);
                     let { token,user } = usuario;
                     if(!token|| !user){
-                        alert("Hubo un problema con el inicio de sesion. Verifica tus credenciales")
+                        alert("Vayaa...Los datos no son correctos 😭. Inténtelo de nuevo por favor 😊 (ABSTÉNGANSE BOTS Y HACKERS😤)")
                         return;
                     }  
                     sessionStorage.setItem("token", token);
@@ -57,7 +57,7 @@ function Login() {
                     
                 }).catch((error) => {
                     console.error("Datos incorrectos", error);
-                    alert("Los datos introducidos incorrectos");
+                    alert("Definitivamente esos nos son los datos correctos ⛔");
                 });
         }}>
             <h1 className="registro-h1 p-3 container fs-1 text-center mx-auto  mb-1">Login</h1>

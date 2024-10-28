@@ -14,6 +14,22 @@
 
 }
 
+@font-face {
+  font-family: Bugaki;
+  src: url(fonts/Bugaki.ttf);
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: Bugaki;
+  src: url(fonts/Bugaki-oblique.ttf);
+  font-weight: normal;
+  font-style: oblique;
+
+}
+
 
 
 body{
@@ -27,6 +43,30 @@ body{
 .text-justify{
   text-align: justify;
 }
+.scroll-vertical{
+  scrollbar-width: thin;
+  scrollbar-color: #EF7E6B transparent ;
+  max-height: 100px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 5px;
+  word-wrap: break-word;
+}
+.scroll-vertical::-webkit-scrollbar{
+  width: 5px;
+}
+.scroll-vertical::-webkit-scrollbar-track{
+  background: transparent;
+  
+}
+.scroll-vertical::-webkit-scrollbar-thumb{
+  background: #EF7E6B;
+  border-radius: 5px;
+}
+.scroll-vertical::-webkit-scrollbar-thumb:hover{
+  background: #FDD28A;
+}
+
 
 
 
@@ -193,6 +233,13 @@ body{
   font-weight: bold;
   text-decoration: underline;
 }
+.tarjeta-texto{
+  padding-right: 10px;
+
+}
+
+
+
 .tarjeta-boton{
   background-color: #FDD28A;
   color: #124361;

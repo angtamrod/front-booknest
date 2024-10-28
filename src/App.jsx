@@ -12,12 +12,25 @@ function App() {
 
     let [libros,setLibros] = useState([])
 
-    useEffect(() => {
+    /* useEffect(() => {
         fetch("http://localhost:3000/api/libros")
         .then(respuesta => respuesta.json())
         .then(libros => {
           setLibros(libros) 
         })
+      }, [])  */
+
+
+      useEffect(() => {
+        const usuario_id = sessionStorage.getItem("usuario_id")
+        if(usuario_id){
+          fetch("http://localhost:3000/api/libros/" + usuario_id)
+          .then(respuesta => respuesta.json())
+          .then(libros => {
+            setLibros(libros) 
+          })
+        }
+        
       }, []) 
 
       function nuevoLibro(libro){
@@ -30,24 +43,16 @@ function App() {
         }))
       }
     
-      function actualizarEstado(id){
-        setTareas(tareas.map( tarea => {
-            if(tarea.id == id){
-              tarea.terminada = !tarea.terminada
-            }
-            return tarea
-        }))
-      }
-      function actualizarTexto(id,texto){
-        setTareas(tareas.map(tarea => {
-          if(tarea.id == id){
-            tarea.tarea = texto
+      function actualizarLibro(id,elementosActualizados){
+        setLibros(libros.map((libro) => {
+          if(libro.id === id){
+            return {...libro, ...elementosActualizados}
           }
-          return tarea
-    
+          return libro
         }))
       }
-    
+
+   
   
   return (
     <>
@@ -80,7 +85,8 @@ function App() {
                                                                                           tematica={tematica}
                                                                                           progreso={progreso}
                                                                                           puntuacion={puntuacion}
-                                                                                          borrarLibro={borrarLibro}/>
+                                                                                          borrarLibro={borrarLibro}
+                                                                                          actualizarLibro={actualizarLibro}/>
              ) } 
             </div>
         </section>
