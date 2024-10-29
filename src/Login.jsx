@@ -35,7 +35,7 @@ function Login() {
       
 
       //variable de entorno para la ruta de login
-      const { VITE_LOGIN } = import.meta.env
+      //const { VITE_LOGIN } = import.meta.env
       //Controlador para cancelar la solicitud Fetch()
       let controlador = new AbortController()
       let opcionesConfiguracion = {
@@ -67,7 +67,7 @@ function Login() {
                     alert("Parece que te has dejado algún campo SIN RELLENAR 🔍")
                     return
                 }
-                fetch(VITE_LOGIN, opcionesConfiguracion)
+                fetch("https://back-booknest.onrender.com/api/login", opcionesConfiguracion)
                 .then((respuesta) => {
                     if (!respuesta.ok) {
                         if (respuesta.status === 404) {

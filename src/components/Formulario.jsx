@@ -20,7 +20,7 @@ function Formulario({nuevoLibro}) {
   let [progreso,setProgreso] = useState("")
   let [puntuacion,setPuntuacion]= useState(0)
 
-  const { VITE_FORMULARIO } = import.meta.env
+  //const { VITE_FORMULARIO } = import.meta.env
   let usuario_id = sessionStorage.getItem("usuario_id");
   let controlador = new AbortController()
   let opcionesConfiguracion = {
@@ -38,7 +38,7 @@ function Formulario({nuevoLibro}) {
     <form className="formulario container mx-auto mt-1 mb-5 row g-3 shadow g-0 p-4 rounded md-mr-20" onSubmit={(evento) => {
             evento.preventDefault()
             if(titulo.trim() !== "" || opinion.trim() !== "" || tematica !== "" || progreso !== "" || puntuacion !== ""){
-                fetch( VITE_FORMULARIO, opcionesConfiguracion)
+                fetch( "https://back-booknest.onrender.com/api/libros/nuevo", opcionesConfiguracion)
                 .then((respuesta) => {
                     console.log("Código de estado de respuesta:", respuesta.status);
                     return respuesta.json();

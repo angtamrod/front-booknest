@@ -23,7 +23,7 @@ function Footer() {
 
 
           <div className="text-center col-12 col-md-4 mb-3">
-            <img className="img-fluid" src="/public/imgs/booknestazul150.png" alt="BookNest" width="140" height="140" />
+            <img className="img-fluid" src="/imgs/booknestazul150.png" alt="BookNest" width="140" height="140" />
           </div>
 
           {/* Con la etiqueta link y el atributo to podemos navegar entre componentes generando una SPA */}

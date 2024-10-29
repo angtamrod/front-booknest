@@ -32,7 +32,7 @@ function Registro() {
 
     const navigate = useNavigate();
     //Variable de entorno para las rutas de registro
-    const { VITE_REGISTRO } = import.meta.env
+    //const { VITE_REGISTRO } = import.meta.env
     //Controlador para cancelar la solicitud fetch si es necesario
     let controlador = new AbortController()
 
@@ -66,7 +66,7 @@ function Registro() {
                     alert("Parece que te has dejado algún campo SIN RELLENAR 🔍")
                     return;
                 }
-                fetch(VITE_REGISTRO,opcionesConfiguracion)
+                fetch("https://back-booknest.onrender.com/api/registro",opcionesConfiguracion)
                 .then((respuesta) => {
                     if (!respuesta.ok) {
                             if (respuesta.status === 409) {

@@ -23,8 +23,10 @@ import {  useState } from "react";
 
 function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,actualizarLibro}) {
 
+    //Un estado booleano que hace que se muestre la tarjeta en modo editar o en modo normal
     let [editar,setEditar] = useState(false)
 
+    //Los estados que recogen los datos de la actualización de la tarjeta
     let [nuevoTitulo,setNuevoTitulo] = useState(titulo)
     let [nuevaOpinion,setNuevaOpinion] = useState(opinion)
     let [nuevaTematica,setNuevaTematica] = useState(tematica)
@@ -32,7 +34,8 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
     let [nuevaPuntuacion,setNuevaPuntuacion] = useState(puntuacion)
    
 
-    const { VITE_ACTUALIZAR,VITE_BORRAR } = import.meta.env
+    //Variables de entorno para las rutas de actualizar y de borrar
+    //const { VITE_ACTUALIZAR,VITE_BORRAR } = import.meta.env
     let controlador = new AbortController()
 
     let configuracionBorrar = {
@@ -41,12 +44,14 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
                               }
 
     
-
+    //En este caso en vez de hacer un onclick directamente lo he puesto como una función inpendiente para no saturar el código
+    //Esta función hace un fetch a la API para actualizar los datos del libro
     let funcionActualizarLibro = () => {
             
-
+            //Creamos un objeto vacío donde almacenaremos los datos actualizados resultantes
             let elementosActualizados = {}
 
+            //Estas comprobaciones se hacen para que si el estado nuevoTitulo y el titulo pasado como prop, no coinciden el título del elementosActualizados será el nuevo título y así con cada dato
             if(nuevoTitulo !== titulo){
                 elementosActualizados.titulo = nuevoTitulo
             }
@@ -78,7 +83,7 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
 
             {/*aenterior ruta: http://localhost:3000/api/registro */ }
             if(nuevoTitulo !== titulo || nuevaOpinion !== opinion || nuevaTematica !== tematica || nuevoProgreso !== progreso || nuevaPuntuacion !== puntuacion){
-                fetch(VITE_ACTUALIZAR + id, opcionesConfiguracion)
+                fetch("https://back-booknest.onrender.com/api/libros/actualizar/" + id, opcionesConfiguracion)
                 .then(respuesta => respuesta.json())
                 .then(({ error,resultado }) => {
                         if(!error && resultado === "ok"){
@@ -102,7 +107,7 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
   return (
     <>
 
-      
+      {/* en este caso he utilizado el two way biding para conectar los valores que recogemos con el evento onChange con el estado que hemos designado para cada dato que vamos a almacenar */}
       <section className="tarjeta container mx-auto mt-2 mb-4 p-4 d-flex flex-column rounded shadow">
               <div className="card-body flex-grow-1 ms-3">
                     { editar ? (<h1 className="editar-h1 text-center mb-2">Editar</h1>) : "" }
@@ -196,7 +201,7 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
                     
                         { editar ? "" : (<button className="tarjeta-boton tarjeta-boton--borrar btn" type="button" 
                                                     onClick={() => {
-                                                                    fetch(VITE_BORRAR + id, configuracionBorrar)
+                                                                    fetch("https://back-booknest.onrender.com/api/libros/borrar/" + id, configuracionBorrar)
                                                                         .then(respuesta => respuesta.json())
                                                                         .then(({error, resultado}) => {
                                                                                 if(!error && resultado == "ok"){

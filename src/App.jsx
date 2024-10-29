@@ -35,7 +35,7 @@ function App() {
       useEffect(() => {
 
         //variable de entorno para la ruta de liblos
-        const { VITE_LIBROS } = import.meta.env
+        //const { VITE_LIBROS } = import.meta.env
         //Recoge el id del usuario del sessionStorage
         const usuario_id = sessionStorage.getItem("usuario_id")
         
@@ -43,7 +43,7 @@ function App() {
 
         //El fetch solo se hace si existe un usuario_id
         if(usuario_id){
-          fetch( VITE_LIBROS + usuario_id)
+          fetch( "https://back-booknest.onrender.com/api/libros/" + usuario_id)
           .then(respuesta => respuesta.json())
           .then(libros => setLibros(libros))
           .catch(err => console.log(err))
