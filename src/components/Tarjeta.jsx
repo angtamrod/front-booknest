@@ -113,7 +113,7 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
                     { editar ? (<h1 className="editar-h1 text-center mb-2">Editar</h1>) : "" }
                     { editar ? (<input type="text" className="editar-inputs form-control mt-1 mb-2" id="editarTitulo" placeholder="Cambia el título" value={nuevoTitulo}
                                 onChange={(evento) => setNuevoTitulo(evento.target.value)}/>) 
-                             : <h3 className="tarjeta-h3 card-title w-100 text-wrap fs-2 mb-4"> {titulo}</h3> }
+                             : <h3 className="tarjeta-h3 ms-2 card-title w-100 text-wrap fs-2 mb-4"> {titulo}</h3> }
                     
                     { editar ? (<div className="input-group mt-1 mb-2">
                                     <select className="editar-inputs form-select" id="editarProgreso" value={nuevaTematica}
@@ -132,7 +132,7 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
                                     
                         
                                 </div>) 
-                             : <p className="card-text"><strong className="fs-6">Temática:</strong> {tematica}</p> }
+                             : <p className="ms-2 card-text"><strong className="fs-6">Temática:</strong> {tematica}</p> }
 
                     { editar ? (<div className="d-flex justify-content-center m-3">
                                     <div className="grid text-center">
@@ -167,7 +167,7 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
                                         </div>
                                     </div>
                                 </div>) 
-                             : <p className="card-text"><strong className="fs-6">Puntuación:</strong> {puntuacion} estrellas ⭐</p> }
+                             : <p className=" ms-2 card-text"><strong className="fs-6">Puntuación:</strong> {puntuacion} estrellas ⭐</p> }
                     
                     { editar ? (<div className="input-group mb-2">
                                     <select className="editar-inputs form-select" id="editarProgreso"  value={nuevoProgreso}
@@ -178,13 +178,13 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
                                         <option value="Terminado ✌️">Terminado ✌️</option>
                                     </select>
                                 </div>) 
-                             : <p className="card-text"><strong className="fs-6">Progreso:</strong> {progreso}</p> }  
-                    { editar ? "" : <h3 className="tarjeta-h3 fs-6 ">Reseña</h3>}  
+                             : <p className="ms-2 card-text"><strong className="fs-6">Progreso:</strong> {progreso}</p> }  
+                    { editar ? "" : <h3 className="ms-2 tarjeta-h3 fs-6 ">Reseña</h3>}  
                     { editar ? (<div className="editar-cuadros col-12 mt-1 mb-1">  
                                     <textarea className="editar-inputs form-control" placeholder="Todo el mundo puede cambiar de opinión...😉" id="editarOpinion" value={nuevaOpinion}
                                     onChange={(evento) => setNuevaOpinion(evento.target.value)}></textarea> 
                                 </div>) 
-                            : <p className="tarjeta-texto scroll-vertical text-wrap card-text text-justify mb-3">{opinion}</p> }
+                            : <p className="tarjeta-texto scroll-vertical ms-2 text-wrap card-text text-justify mb-3">{opinion}</p> }
                     
                     <div className="d-grid gap-1 mt-4 d-md-flex justify-content-md-end">
                         <button className="tarjeta-boton btn me-md-2" type="button"
