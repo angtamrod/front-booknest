@@ -28,7 +28,7 @@ styles.css
 
 @font-face {
   font-family: Now;
-  src: url(fonts/Now-Bold.otf);
+  src: url(/fonts/Now-Bold.otf);
   font-weight: bold;
   font-style: bold;
 
@@ -36,7 +36,7 @@ styles.css
 
 @font-face {
   font-family: Now;
-  src: url(fonts/Now-Regular.otf);
+  src: url(/fonts/Now-Regular.otf);
   font-weight: normal;
   font-style: normal;
 
@@ -44,7 +44,7 @@ styles.css
 
 @font-face {
   font-family: Bugaki;
-  src: url(fonts/Bugaki.ttf);
+  src: url(/fonts/Bugaki.ttf);
   font-weight: normal;
   font-style: normal;
 
@@ -52,7 +52,7 @@ styles.css
 
 @font-face {
   font-family: Bugaki;
-  src: url(fonts/Bugaki-oblique.ttf);
+  src: url(/fonts/Bugaki-oblique.ttf);
   font-weight: normal;
   font-style: oblique;
 
