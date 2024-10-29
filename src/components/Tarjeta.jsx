@@ -196,7 +196,7 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
                                     }
 
                                 }}
-                        >{ editar ? "Actualizar" : "Editar"}</button>
+                        >{ editar ? "Guardar" : "Editar"}</button>
                         {/* antigua ruta: http://localhost:3000/api/libros/borrar/ */}
                     
                         { editar ? "" : (<button className="tarjeta-boton tarjeta-boton--borrar btn" type="button" 

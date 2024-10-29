@@ -144,7 +144,7 @@ function Formulario({nuevoLibro}) {
             </div>
 
             <div className="d-grid gap-2">
-                <button className="formulario-boton formulario-boton--guardar btn btn-primary" type="submit">Guardar</button>
+                <button className="formulario-boton formulario-boton--guardar btn btn-primary" type="submit">Crear</button>
             </div>
 
     </form>

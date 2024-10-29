@@ -177,9 +177,10 @@ body{
   color: var(--color-naranja);
 }
 .nav-link:hover{
-  /* color: #124361; */
+  
   color: var(--color-azul-oscuro);
 }
+
 .nav-link--logo{
   display: flex;
   justify-content: center;
