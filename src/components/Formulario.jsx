@@ -35,7 +35,7 @@ function Formulario({nuevoLibro}) {
     <>
 
     {/*aenterior ruta: http://localhost:3000/api/libros/nuevo*/ }
-    <form className="formulario container mx-auto mt-1 mb-5 row g-3 shadow g-0 p-4 rounded md-mr-20" onSubmit={(evento) => {
+    <form className="formulario container-sm mx-auto mt-1 mb-5 row g-3 shadow g-0 p-4 rounded md-mr-20" onSubmit={(evento) => {
             evento.preventDefault()
             if(titulo.trim() !== "" || opinion.trim() !== "" || tematica !== "" || progreso !== "" || puntuacion !== ""){
                 fetch( "https://back-booknest.onrender.com/api/libros/nuevo", opcionesConfiguracion)

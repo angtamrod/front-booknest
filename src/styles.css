@@ -386,7 +386,7 @@ body{
   /* background-color: #EF7E6B; */
   color: var(--color-azul-oscuro);
   /* color: #124361; */
-  max-width: 650px; 
+  max-width: 600px; 
   max-height: auto;
 }
 .formulario-h1{

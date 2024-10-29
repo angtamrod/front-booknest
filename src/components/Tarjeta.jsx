@@ -109,7 +109,7 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
 
       {/* en este caso he utilizado el two way biding para conectar los valores que recogemos con el evento onChange con el estado que hemos designado para cada dato que vamos a almacenar */}
       <section className="tarjeta container mx-auto mt-2 mb-4 p-4 d-flex flex-column rounded shadow">
-              <div className="card-body flex-grow-1 ms-3">
+              <div className="card-body flex-grow-1 ">
                     { editar ? (<h1 className="editar-h1 text-center mb-2">Editar</h1>) : "" }
                     { editar ? (<input type="text" className="editar-inputs form-control mt-1 mb-2" id="editarTitulo" placeholder="Cambia el título" value={nuevoTitulo}
                                 onChange={(evento) => setNuevoTitulo(evento.target.value)}/>) 
