@@ -1,0 +1,763 @@
+/* ---------------------------------------------
+
+styles.css
+
+-tipografías importadas
+-reset de estilos globales
+-variables para todo el proyecto
+-estilos globales para el body
+-utilidades
+-Nav.jsx
+-Index.jsx
+-App.jsx
+-Formulario.jsx
+-Tarjeta.jsx
+-Login.jsx
+-Registro.jsx
+-Footer.jsx
+
+
+------------------------------------------------- */
+
+
+
+
+/* ---------------------------------------------
+    TIPOGRAFÍAS IMPORTADAS
+------------------------------------------------- */
+
+@font-face {
+  font-family: Now;
+  src: url(fonts/Now-Bold.otf);
+  font-weight: bold;
+  font-style: bold;
+
+}
+
+@font-face {
+  font-family: Now;
+  src: url(fonts/Now-Regular.otf);
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: Bugaki;
+  src: url(fonts/Bugaki.ttf);
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: Bugaki;
+  src: url(fonts/Bugaki-oblique.ttf);
+  font-weight: normal;
+  font-style: oblique;
+
+}
+
+
+/* ---------------------------------------------
+    RESET DE ESTILOS GLOBALES
+------------------------------------------------- */
+*{
+  margin:0;
+  padding:0;
+}
+
+
+/* ---------------------------------------------------
+    VARIABLES PARA TODO EL PROYECTO
+------------------------------------------------------
+Colores y tipografías reutilizables en todo el proyecto
+----------------------------------------------------- */
+
+:root{
+ /*-------paleta de colores--------------*/
+ --color-azul-oscuro: #124361;
+ --color-azul-claro: #c9dbe7;
+ --color-naranja: #EF7E6B;
+ --color-amarillo: #FDD28A;
+ --color-claro: #D7C8B5;
+ --color-blanco:  whitesmoke;
+
+ /*-------tipografía principal--------------*/
+ --fuente-principal: Now;
+}
+
+
+
+
+/* ---------------------------------------------
+    ESTILOS PARA EL BODY
+------------------------------------------------- */
+body{
+  font-family: var(--fuente-principal);
+  font-weight: normal;
+  /* background-color: #D7C8B5; */
+  background-color: var(--color-claro);
+   
+}
+
+
+/* ---------------------------------------------
+     UTILIDADES
+-----------------------------------------------*/
+
+.text-justify{
+  text-align: justify;
+}
+
+/*Scroll personalizado para scrollbar*/
+.scroll-vertical{
+  scrollbar-width: thin;
+  scrollbar-color: #EF7E6B transparent ;
+  max-height: 100px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 5px;
+  word-wrap: break-word;
+}
+.scroll-vertical::-webkit-scrollbar{
+  width: 5px;
+}
+.scroll-vertical::-webkit-scrollbar-track{
+  background: transparent;
+  
+}
+.scroll-vertical::-webkit-scrollbar-thumb{
+  /* background: #EF7E6B; */
+  background: var(--color-naranja);
+  border-radius: 5px;
+}
+.scroll-vertical::-webkit-scrollbar-thumb:hover{
+  /* background: #FDD28A; */
+  background: var(--color-amarillo);
+}
+.scroll-button{
+  width: 50px;
+  height: 50px;
+  right: 15px;
+  bottom: 30px;
+  color: white;
+  z-index: 2;
+}
+.scroll-button:hover{
+  /* color: #124361; */
+  color: var(--color-azul-oscuro);
+}
+
+
+
+
+
+/* ----------------Nav.jsx---------------------------------- */
+/*
+*Descripición: Estilos para el componente barra de navegación
+*Estructuras:
+*      -nav
+*      -nav-span
+*      -nav-link
+*      -nav-logo
+*
+---------------------------------------------------------------*/
+
+.nav{
+  background-color: var(--color-azul-claro);
+  /* background-color:  #c9dbe7; */
+}
+.nav-span{
+  font-family: Bugaki;
+  text-decoration: none; 
+}
+.nav-link{
+  /* color: #EF7E6B; */ 
+  color: var(--color-naranja);
+}
+.nav-link:hover{
+  /* color: #124361; */
+  color: var(--color-azul-oscuro);
+}
+.nav-link--logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  padding: 0;
+}
+
+/* Logo dentro de la navegacion */
+.nav-logo{
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+/* ---------------Nav.jsx---------------------------------- */
+
+
+
+
+
+
+
+
+
+/* ----------------Index.jsx---------------------------------- */
+/*
+*Descripición: Estilos para la landing page
+
+*Estructuras:
+*      -foto
+*         -foto-texto
+*      -introduccion
+*         -introduccion-h3
+*      -presentacion
+*             -presentación--azul
+*             -presentación--amarillo
+*         -presentacion-h1
+*         -presentacion-img
+
+------------------------------------------------------------------*/
+
+.foto{
+  background-image: url(/imgs/fondo3.webp);
+  max-width: 100vw;
+  background-repeat: repeat;
+}
+.foto-texto{
+  font-family: Bugaki;
+  background-color: var(--color-azul-oscuro);
+  /* background-color: #124361; 
+  */
+  
+  color: var(--color-blanco);
+  text-decoration: none;
+}
+.foto-texto:hover{
+  font-family: Bugaki;
+  background-color: var(--color-amarillo);
+  /* background-color: #124361; */
+  text-decoration: none;
+  color: var(--color-azul-oscuro);
+}
+
+
+.introduccion{
+  margin-bottom: 100px;
+}
+.introduccion-h3{
+  font-family: Bugaki;
+  margin-top: 100px;
+  color: var(--color-azul-oscuro);
+  /* color: #124361; */
+  font-size: 4rem;
+}
+
+.presentacion{
+  max-width: 1200px;
+  color: var(--color-azul-oscuro);
+  /* color: #124361; */
+  font-weight: 500;
+}
+.presentacion--azul{
+  /* background-color: #124361; */
+  background-color: var(--color-azul-oscuro);
+  color: whitesmoke;
+}
+.presentacion--amarillo{
+  background-color: var(--color-amarillo);
+  /* background-color: #FDD28A; */
+  color: #124361;
+}
+.presentacion-h1{
+  font-family: Bugaki; 
+}
+.presentacion-img{
+  max-width: 80%;
+  height: auto;
+}
+/* ----------------Index.jsx---------------------------------- */
+
+
+
+
+
+
+
+/* ----------------App.jsx---------------------------------- */
+/*
+*Descripición: Estilos para la landing page
+
+*Estructuras:
+*   -app-azul
+*       -app-h1
+*       -app-h3
+*       -app-h5
+*       -app-button
+*   -app-amarillo
+*       -app-h3--vacio
+*       -app-h3--libros
+*       -app-p
+----------------------------------------------------------------*/
+.app-azul{
+  background-color: var(--color-azul-oscuro);
+  /* background-color: #124361; */
+}
+.app-h1{
+  color: var(--color-naranja);
+  /* color: #EF7E6B; */
+  font-family: Bugaki;
+   
+}
+.app-h3{
+  font-family: Bugaki;
+  color: var(--color-blanco);
+  /* color: whitesmoke; */
+  max-width: 700px;
+}
+.app-h5{
+  color: var(--color-naranja);
+  /* color: #EF7E6B; */
+  font-weight: bold;
+}
+.app-icon{
+  color: var(--color-naranja);
+  /* color: #EF7E6B; */
+}
+.app-icon:hover{
+  color: var(--color-azul-claro);
+  /* color:  #c9dbe7; */
+}
+.app-amarillo{
+  background-color: var(--color-amarillo);
+
+  /* background-color: #FDD28A; */
+}
+.app-h3--vacio{
+  color: var(--color-azul-oscuro);
+  /* color: #124361; */
+  font-family: Bugaki;   
+}
+.app-h3--libros{
+  margin-top: 100px;
+  color: var(--color-azul-oscuro);
+  /* color: #124361; */
+  font-size: 4rem;
+}
+.app-p{
+  color: var(--color-azul-oscuro);
+  /* color: #124361; */
+  max-width: 700px;
+  font-weight: bolder;
+}
+/* ----------------App.jsx---------------------------------- */
+
+
+
+
+
+
+
+
+
+
+/* ----------------Formulario.jsx---------------------------------- */
+/*
+*Descripición: Estilos para el componente de formulario que forma parte de app.jsx
+
+*Estructuras:
+*   -Formulario
+*      -formulario-h1
+*      -formulario-label
+*        -formulario-label--option
+*        -formulario-label--radio
+*      -formulario-inputs
+*      -formulario-icon
+*      -formulario-boton
+*        -formulario-boton--guardar
+
+-------------------------------------------------------------------------*/
+.formulario{
+  background-color: var(--color-naranja);
+  /* background-color: #EF7E6B; */
+  color: var(--color-azul-oscuro);
+  /* color: #124361; */
+  max-width: 650px; 
+  max-height: auto;
+}
+.formulario-h1{
+  font-family: Bugaki;
+}
+.formulario-label{
+  font-weight: bold;
+}
+.formulario-label--option{
+  background-color: var(--color-azul-claro);
+  color: var(--color-azul-oscuro);
+  /* background-color: #c9dbe7;
+  color: #124361; */
+}
+.formulario-label--radio{
+  font-family: Bugaki;
+  color: var(--color-azul-oscuro);
+}
+.formulario-inputs{
+  /* background-color: whitesmoke;
+  color: #124361; */
+  background-color: var(--color-blanco);
+  color: var(--color-azul-oscuro);
+}
+.formulario-inputs:focus{
+  color: var(--color-azul-oscuro);
+  /* color: #124361; */
+}
+.formulario-inputs::placeholder{
+  color: var(--color-azul-oscuro);
+  /* color: #124361; */
+}
+.formulario-icon{
+  color: var(--color-azul-claro);
+  /* color:#c9dbe7; */
+}
+.formulario-boton{
+  font-weight: bold;
+}
+.formulario-boton--guardar{
+  background-color: var(--color-azul-claro);
+  color: var(--color-azul-oscuro);
+  /* background-color:  #c9dbe7;
+  color: #124361; */
+}
+.formulario-boton--guardar:hover{
+  /* background-color: #124361;
+  color: #c9dbe7; */
+  background-color: var(--color-azul-oscuro);
+  color: var(--color-azul-claro);
+}
+/* ----------------Formulario.jsx---------------------------------- */
+
+
+
+
+
+
+
+
+
+/* ----------------Tarjeta.jsx---------------------------------- */
+/*
+*Descripición: Estilos para el componente tarjeta que forma parte de app.jsx
+
+*Estructuras:
+*   -tarjeta
+*      -tarjeta-h3
+*      -tarjeta-h4
+*      -tarjeta-texto
+*      -tarjeta-boton
+*      -tarjeta-boton--borrar
+*   -editar
+*      -editar-h1
+*      -editar-inputs
+*      -editar-icon
+*      -editar-boton
+*      -editar-boton--guardar
+*      -editar-label
+
+-------------------------------------------------------------------------*/
+.tarjeta{
+  background-color: var(--color-azul-claro);
+  color: var(--color-azul-oscuro);
+ /*  background-color: #c9dbe7;
+  color: #124361; */
+  max-width: 750px;
+}
+
+.tarjeta-h3{
+  font-weight: bolder;
+  font-size: 4rem;
+  text-decoration: underline;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.tarjeta-h4{
+  font-weight: bold;
+  text-decoration: underline;
+}
+.tarjeta-texto{
+  padding-right: 10px;
+}
+.tarjeta-boton{
+  background-color: var(--color-amarillo);
+  color: var(--color-azul-oscuro);
+  /* background-color: #FDD28A;
+  color: #124361; */
+  font-weight: bold;
+}
+.tarjeta-boton:hover{
+  background-color: var(--color-azul-oscuro);
+  color: var(--color-blanco);
+  /* background-color: #124361;
+  color: whitesmoke; */
+}
+.tarjeta-boton--borrar{
+  background-color: var(--color-naranja);
+  /* background-color: #EF7E6B; */
+}
+
+.editar-h1{
+  font-family: Bugaki;
+}
+/* .editar-label{
+  font-weight: bold; 
+}
+ .editar-label--option{
+  background-color: var(--color-amarillo);
+   background-color: #FDD28A; 
+} */
+
+.editar-label{
+  font-family: Bugaki;
+} 
+.editar-inputs{
+  /* background-color: whitesmoke;
+  color: #124361; */
+  background-color: var(--color-blanco);
+  color: #124361;
+}
+.editar-inputs:focus{
+  color: var(--color-azul-oscuro);
+}
+.editar-icon{
+  color: var(--color-azul-claro);
+  /* color:#c9dbe7;  */ 
+}
+.editar-boton{
+  font-weight: bold;
+}
+.editar-boton--guardar{
+  /* background-color:  #c9dbe7;
+  color: whitesmoke; */
+  background-color:  var(--color-azul-claro);
+  color: var(--color-blanco);
+}
+.editar-boton--guardar:hover{
+  /* background-color: #EF7E6B; */
+  background-color: var(--color-naranja);
+}
+/* ----------------Tarjeta.jsx---------------------------------- */
+
+
+
+
+
+
+
+
+
+/* ----------------Login.jsx---------------------------------- */
+/*
+*Descripición: Estilos para la página de login
+
+*Estructuras:
+*   -login
+*      -login-form
+*      -login-h1
+*      -login-label
+*      -login-btn
+*      -login-btn--registro
+*      -login-img
+*      -login-link
+*      -login-inputs
+
+-------------------------------------------------------------------*/
+.login{
+  color: var(--color-azul-oscuro);
+  /* color: #124361; */
+}
+.login-form{
+  max-width: 450px;
+  background-color: var(--color-naranja);
+  /* background-color: #EF7E6B; */
+}
+.login-h1{
+  font-family: Bugaki;
+  color: var(--color-azul-oscuro);
+  /* color: #124361; */
+  text-decoration: underline;
+  font-size: 3rem;
+  max-width: 70%;
+}
+.login-label{
+  font-weight: bold;
+}
+.login-btn{
+  /* background-color: #124361;
+  color: whitesmoke; */
+  background-color: var(--color-azul-oscuro);
+  color: var(--color-blanco);
+  font-weight: bold;
+  max-width: 97%;
+}
+.login-btn:hover{
+  background-color: var(--color-amarillo);
+  color: var(--color-azul-oscuro);
+  /* background-color: #FDD28A;
+  color: #124361; */
+}
+.login-btn--registro{
+  background-color: var(--color-azul-claro);
+  /* background-color: #c9dbe7; */
+}
+.login-img{
+  max-width: 130px;
+  height: auto;
+}
+.login-link{
+  color: var(--color-azul-oscuro);
+  /* color: #124361; */
+}
+.login-link:hover{
+  /* color: #124361;
+  background-color: #FDD28A; */
+  color: var(--color-azul-oscuro);
+  background-color: var(--color-amarillo);
+}
+.login-inputs{
+  /* background-color: whitesmoke;
+  color: #124361; */
+  background-color: var(--color-blanco);
+  color: #124361;
+}
+.login-inputs:focus{
+  color: var(--color-azul-oscuro);
+}
+.login-inputs::placeholder{
+  color: var(--color-azul-oscuro);
+}
+/* ----------------Login.jsx---------------------------------- */
+
+
+
+
+
+
+
+
+/* ----------------Registro.jsx---------------------------------- */
+/*
+*Descripición: Estilos para la página de registro
+
+*Estructuras:
+*   -registro
+*      -registro-form
+*      -registro-h1
+*      -registro-label
+*      -registro-btn
+*      -registro-btn--registro
+*      -registro-img
+*      -registro-link
+*      -registro-inputs
+
+-----------------------------------------------------------------------*/
+.registro{
+  /* color: #124361; */ 
+  color: var(--color-azul-oscuro);
+}
+.registro-form{
+  max-width: 500px;
+  max-height: auto;
+  /* background-color: #c9dbe7; */
+  background-color: var(--color-azul-claro);
+}
+.registro-label{
+  font-weight: bold;
+}
+.registro-btn{
+  /* background-color: #FDD28A;
+  color: #124361; */
+  background-color: var(--color-amarillo);
+  color: var(--color-azul-oscuro);
+  font-weight: bold;
+  max-width: 97%;
+}
+.registro-btn--guardar{
+  /* background-color: #EF7E6B; */
+  background-color: var(--color-naranja);
+}
+.registro-btn:hover{
+  /* background-color: #124361;
+  color: whitesmoke; */
+  background-color: var(--color-azul-oscuro);
+  color: var(--color-blanco);
+}
+.registro-h1{
+  font-family: Bugaki;
+  color: var(--color-azul-oscuro);
+  /* color: #124361; */
+  text-decoration: underline;
+  font-size: 3rem;
+  max-width: 70%;
+}
+.registro-img{
+  max-width: 150px;
+  height: auto;
+}
+.registro-inputs{
+  /* background-color: whitesmoke;
+  color: #124361; */
+  background-color: var(--color-blanco);
+  color: #124361;
+}
+.registro-inputs:focus{
+  color: var(--color-azul-oscuro);
+}
+.registro-inputs::placeholder{
+  color: var(--color-azul-oscuro);
+}
+/* ----------------Registro.jsx---------------------------------- */
+
+
+
+
+
+
+/* ----------------Footer.jsx---------------------------------- */
+/*
+*Descripición: Estilos para el componente footer que forma parte de index.jsx y ap.jsx
+
+*Estructuras:
+*   -footer
+*      -footer-h5
+*      -footer-enlaces
+
+------------------------------------------------------------------------*/
+.footer{
+  /* background-color: #EF7E6B;
+  color: #124361; */
+  background-color: var(--color-naranja);
+  color: var(--color-azul-oscuro);
+}
+.footer-h5{
+  font-family: Bugaki;
+  text-decoration: underline;
+}
+.footer-enlaces{
+  text-decoration: none;
+  color: var(--color-azul-oscuro);
+  /* color: #124361; */
+}
+.footer-enlaces:hover{
+  /* color: #c9dbe7; */
+  color: var(--color-amarillo);
+}
+/* ----------------Footer.jsx---------------------------------- */
+
+
+
+
+

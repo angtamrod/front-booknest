@@ -1,3 +1,17 @@
+/**-----------------------------------------------------------------------------
+ * APP.JSX
+ * 
+ * hooks: useEffect,useState
+ * Datos: fetch a API situada en "https://back-booknest.onrender.com/api/libros/"
+ * Estructura:
+ *      - Navbar
+ *      - App
+ *      - Footer
+ * 
+ -------------------------------------------------------------------------------*/
+
+
+//importamos hooks y componentes 
 import { useEffect,useState } from "react";
 
 import BotonScroll from "./components/BotonScroll.jsx";
@@ -9,37 +23,63 @@ import Tarjeta from "./components/Tarjeta.jsx";
 
 function App() {
 
+    //Estado para mostrar y esconder el formulario
     let [formularioOn,setFormularioOn] = useState(false)
+    //Estado para almacenar los libros que recibimos de la API
     let [libros,setLibros] = useState([])
-    // let [busqueda,setBusqueda] = useState("")
+  
 
     
 
+    //Usamos useEffect para hacer un fetch que nos traiga los libros de la API
       useEffect(() => {
 
+        //variable de entorno para la ruta de liblos
+        const { VITE_LIBROS } = import.meta.env
+        //Recoge el id del usuario del sessionStorage
         const usuario_id = sessionStorage.getItem("usuario_id")
+        
         let controller = new AbortController()
 
+        //El fetch solo se hace si existe un usuario_id
         if(usuario_id){
-          fetch("http://localhost:3000/api/libros/" + usuario_id)
+          fetch( VITE_LIBROS + usuario_id)
           .then(respuesta => respuesta.json())
           .then(libros => setLibros(libros))
           .catch(err => console.log(err))
           .finally(() => controller.abort())
         }
         
-      }, []) 
+      }, [])//Esto garantiza que se renderice solo una vez cuando se monta el componente
 
+
+      /**
+       * Función para añadir un nuevo libro a la lista
+       * 
+       * @param {Object} libro -Objeto que contiene los datos del libro
+       */
       function nuevoLibro(libro){
-        setLibros([libro,...libros])
+        setLibros([...libros,libro])
       }
 
+      /**
+       * Función para eliminar un libro de la lista
+       * 
+       * @param {string} id - Id del libro a eliminar
+       */
       function borrarLibro(id){
         setLibros(libros.filter( libros => {
           return libros.id != id
         }))
       }
     
+
+      /**
+       * Función para actualizar los datos de un libro de la lista
+       * 
+       * @param {string} id - Id del libro a eliminar
+       * @param {Object} elementosActualizados - Objeto con los campos modificados
+       */
       function actualizarLibro(id,elementosActualizados){
         setLibros(libros.map((libro) => {
           if(libro.id === id){
@@ -54,10 +94,13 @@ function App() {
   return (
     <>
 
+   {/*  Navbar(barra de navegación principal) */}
     <Navbar />
-    <main>
-        <BotonScroll />
-        <section className="app gap-4 pb-3 mx-auto d-flex flex-column justify-content-center align-items-center text-center rounded min-vh-80">
+    {/* Contenido principal de la aplicación */}
+    <main className="app">
+        <BotonScroll />{/* Botón para desplazarse hacia arriba */}
+        {/* Sección de bienvenida y formulario */}
+        <section className="app-azul gap-4 pb-3 mx-auto d-flex flex-column justify-content-center align-items-center text-center rounded min-vh-80">
               <div className="max-vw-100 pb-2 mx-auto grid row text-center justify-content-center gap-2 align-items-center">
                     <h1 className="app-h1 col-12 mt-5 p-2 text-center text-wrap rounded fs-1 ">BookPack</h1>
                     <div className="container md-p-5 d-flex justify-content-center align-items-center">
@@ -65,6 +108,7 @@ function App() {
                     </div>
               </div>
               
+              {/* Botón para mostrar el formulario */}
               <h5 className="app-h5 fs-6 mt-2 text-wrap rounded">Pulsa aquí para <br /> añadir una nueva lectura...</h5>
               <button type="button" title="Añadir una lectura" className="app-button btn btn-link p-0 border-0 mt-1 mb-2" 
                       onClick={() => {
@@ -76,28 +120,11 @@ function App() {
         </section>
 
         
-        
-        <section className="app-container gap-4 pb-4 mx-auto d-flex flex-column justify-content-center align-items-center">
-            {/* <form className="app-input container-sm input-group shadow rounded" onSubmit={ (evento) => {
-                evento.preventDefault()
-                const usuario_id = sessionStorage.getItem("usuario_id")
-                  if(busqueda.trim() !== ""){
-                    fetch(`http://localhost:3000/api/libros/busqueda/${usuario_id}/${busqueda}`)
-                    .then(respuesta => console.log(respuesta))
-                    .then(librosFiltrados => setLibros(librosFiltrados))
-                    
-                  }else{
-                    fetch("http://localhost:3000/api/libros/" + usuario_id)
-                      .then(respuesta => respuesta.json())
-                      .then(libros => {
-                        setLibros(libros) 
-                      })
-                  }
+        {/* Sección para mostrar los libros almacenados o si no hay una pequeña explicación */}
 
-            }}>
-                <input type="text" className="form-control fs-4" placeholder="Busca por título..." value={busqueda} onChange={(evento) => setBusqueda(evento.target.value)}/>
-                <button className="app-button btn btn-outline-secondary" type="submit" id="button-addon2"><i className=" fs-4 bi bi-search-heart-fill"></i></button>
-            </form> */}
+        {/*Muestra los libros almacenados de manera inversa para que el último libro que añade se vea el primero de la lista */}
+        <section className="app-amarillo gap-4 pb-4 mx-auto d-flex flex-column justify-content-center align-items-center">
+            
            { libros==false ? (<div className="p-3 max-vw-100 pb-2 mx-auto grid row text-center justify-content-center gap-2 align-items-center">
                                   <h3 className="app-h3 app-h3--vacio col-12 mt-5 p-2 text-center text-wrap rounded fs-1 ">Uppss... Nos has pillado sin nada.</h3>
                                   <div className="container md-p-5 d-flex justify-content-center align-items-center">
@@ -105,7 +132,7 @@ function App() {
                                   </div>
                             </div>) 
                         : (<div className=" container gap-1 mt-4 pb-3 mx-auto d-flex flex-column justify-content-center align-items-center">
-                              { libros.reverse().map(({id,titulo,opinion,tematica,progreso,puntuacion}) => <Tarjeta key={id} 
+                              { libros.slice().reverse().map(({id,titulo,opinion,tematica,progreso,puntuacion}) => <Tarjeta key={id} 
                                                                                                             id={id} 
                                                                                                             titulo={titulo}                         opinion={opinion} 
                                                                                                             tematica={tematica}
@@ -117,32 +144,10 @@ function App() {
                             </div>)}
 
 
-            {/* <div className=" container gap-1 mt-4 pb-3 mx-auto d-flex flex-column justify-content-center align-items-center">
-            { libros.map(({id,titulo,opinion,tematica,progreso,puntuacion}) => <Tarjeta key={id} 
-                                                                                          id={id} 
-                                                                                          titulo={titulo}                                           opinion={opinion} 
-                                                                                          tematica={tematica}
-                                                                                          progreso={progreso}
-                                                                                          puntuacion={puntuacion}
-                                                                                          borrarLibro={borrarLibro}
-                                                                                          actualizarLibro={actualizarLibro}/>
-             ) } 
-            </div> */}
+          
         </section> 
 
-      {/*   <section className="app-container gap-4 pb-4 mx-auto d-flex flex-column justify-content-center align-items-center">
-            <div className=" container gap-1 mt-4 pb-3 mx-auto d-flex flex-column justify-content-center align-items-center">
-            { libros.slice().reverse().map( ({id,titulo,opinion,tematica,progreso,puntuacion}) => <Tarjeta key={id} 
-                                                                                          id={id} 
-                                                                                          titulo={titulo}                                           opinion={opinion} 
-                                                                                          tematica={tematica}
-                                                                                          progreso={progreso}
-                                                                                          puntuacion={puntuacion}
-                                                                                          borrarLibro={borrarLibro}
-                                                                                          actualizarLibro={actualizarLibro}/>
-             ) } 
-            </div>
-        </section> */}
+      
 
 
     </main>

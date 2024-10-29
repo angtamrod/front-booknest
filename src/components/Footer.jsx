@@ -1,5 +1,12 @@
+//Importación de hooks
 import { Link } from "react-router-dom";
 
+
+/**
+ * Componente Footer.
+ * Este componente genera un footer para poder usarlo en el resto de componentes
+ * 
+ */
 function Footer() {
 
 
@@ -19,12 +26,12 @@ function Footer() {
             <img className="img-fluid" src="/public/imgs/booknestazul150.png" alt="BookNest" width="140" height="140" />
           </div>
 
-          
+          {/* Con la etiqueta link y el atributo to podemos navegar entre componentes generando una SPA */}
           <div className="col-12 col-md-4 mb-3 pt-3">
             <h5 className="text-center footer-h5 fs-3">Enlaces</h5>
             <ul className="text-center list-unstyled pt-2">
               <li><Link to="/" className="footer-enlaces fs-6">Inicio<i className="footer-icono m-1 fs-6 bi bi-arrow-up-square-fill"></i></Link></li>
-              <li><Link to="/bookshelf" className="footer-enlaces fs-6">BookPack<i className="footer-icono m-1 fs-5 bi bi-backpack-fill"></i></Link></li>
+              <li><Link to="/bookpack" className="footer-enlaces fs-6">BookPack<i className="footer-icono m-1 fs-5 bi bi-backpack-fill"></i></Link></li>
             </ul>
           </div>
 
