@@ -1,5 +1,5 @@
 import { useState,useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 function Registro() {
 
     //CHAT GPT
@@ -18,6 +18,15 @@ function Registro() {
 
     const navigate = useNavigate();
 
+    let controlador = new AbortController()
+    let opcionesConfiguracion = {
+                                    method : "POST",
+                                    body : JSON.stringify({nombre, email, password}),
+                                    headers : {
+                                        "Content-type" : "application/json"
+                                    }
+                                }
+
 
     
   return (
@@ -30,29 +39,36 @@ function Registro() {
                     <img src="/imgs/booknestazul150.png" className="login-img img-fluid" alt="Logo para el login" /> 
             </div>
        
-            <form className="registro-form container-sm mx-auto mt-1 mb-2 row g-3 shadow p-5 rounded " onSubmit={ (evento) => {
+            <form className="registro-form container-sm mx-auto mt-1 mb-2 row g-3 shadow p-4 rounded " onSubmit={ (evento) => {
                 evento.preventDefault()
-                fetch("http://localhost:3000/api/registro",{
-                    method : "POST",
-                    body : JSON.stringify({nombre, email, password}),
-                    headers : {
-                        "Content-type" : "application/json"
-                    }
-                })
+                if(!nombre||!email || !password){
+                    alert("Parece que te has dejado algún campo SIN RELLENAR 🔍")
+                    return;
+                }
+                fetch("http://localhost:3000/api/registro",opcionesConfiguracion)
                 .then((respuesta) => {
-                    if(!respuesta.ok) {
-                        alert("Error en el servidor");
-                    }return respuesta.json()
-                })
+                    if (!respuesta.ok) {
+                            if (respuesta.status === 409) {
+                                throw new Error("El usuario ya existe");
+                            }else {
+                                throw new Error("Error en el servidor");
+                            }
+                          }
+                          return respuesta.json();
+                    })
                 .then((usuario) => {
-                    console.log("Usuario registrado correctamente", usuario);
-                    alert("Usuario registrado correctamente");
-                    navigate('/login');
+                    console.log("Usuario registrado correctamente", usuario)
+                    alert("Usuario registrado correctamente")
+                    navigate('/login')
                     
                 }).catch((error) => {
-                    console.error("Error al registrar el usuario", error);
-                    alert("Hubo un problema al registrar el usuario")
-                });
+                   console.error("Error al registrar el usuario", error.message)
+                   alert(error.message) 
+                    
+                        
+                    
+                })
+                .finally(() => controlador.abort())
         }}>
             <h1 className="registro-h1 p-3 container fs-1 text-center mx-auto  mb-1">Registro</h1>
             
@@ -69,7 +85,11 @@ function Registro() {
                 <label htmlFor="registroPassword1" className="registro-label form-label">Contraseña</label>
                 <input type="password" placeholder="No uses tu fecha de cumpleaños 🙃" className="form-control" id="registroPassword" value={password} onChange={(evento) => setPassword(evento.target.value)} />
             </div>
-            <button type="submit" className="registro-btn btn">Guardar</button>
+            {/* <button type="submit" className="registro-btn btn">Guardar</button> */}
+            
+                <Link to="/login" className="login-link registro-btn  btn  text-decoration-none">Login</Link>
+                <button type="submit" className="registro-btn btn">Guardar</button>
+           
         </form>   
        
     </main>

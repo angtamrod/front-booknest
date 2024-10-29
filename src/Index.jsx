@@ -14,15 +14,14 @@ function Index() {
     <Navbar />
     
     <BotonScroll />
-    <section className="foto container-fluid d-flex align-items-center justify-content-center vh-100 vw-100 mb-4 mt-0 rounded">
-          <button className="foto-texto text-light card p-4 bg-opacity-50 shadow rounded-pill">
-              
+    <section className="foto container-fluid d-flex align-items-center justify-content-center vh-100  mb-4 mt-0 rounded">
+          <button className="foto-texto text-light card p-4 bg-opacity-50 shadow rounded-pill" title="Ir a BookPack">
               <Link to="/bookshelf" className="text-decoration-none"><h1 className="foto-link fs-1 text-center">Comienza con BookNest</h1></Link>
           </button>
     </section>
 
     <section className="introduccion gap-4 pb-3 mx-auto d-flex flex-column justify-content-center align-items-center text-center rounded">
-            <h3 className="introduccion-h3 p-3 container text-center mx-auto  mb-4">About us</h3>
+            {/* <h3 className="introduccion-h3 p-3 container text-center mx-auto  mb-4">Nosotros</h3> */}
             <div className="presentacion container gap-2 rounded p-2 d-flex flex-column flex-md-row mx-auto m-2 mb-4 bt-1 bb-1 rounded g-0">
                   <div className="d-flex flex-column flex-md-row md-w-50 align-items-center justify-content-center md-w-50 md-h-50">
                         <div className="mx-auto p-3 ">

@@ -156,6 +156,14 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
     let [nuevoProgreso,setNuevoProgreso] = useState(progreso)
     let [nuevaPuntuacion,setNuevaPuntuacion] = useState(puntuacion)
    
+    let controlador = new AbortController()
+
+    let configuracionBorrar = {
+                                    method : "DELETE",
+                                    
+                              }
+
+    
 
     let funcionActualizarLibro = () => {
             
@@ -181,23 +189,29 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
             if(nuevaPuntuacion !== puntuacion){
                 elementosActualizados.puntuacion = nuevaPuntuacion
             }
+
+            let opcionesConfiguracion = {
+                                            method: "PUT",
+                                            headers : {
+                                                "Content-Type" : "application/json"
+                                            },
+                                            body: JSON.stringify(elementosActualizados)
+                                        }
+
+
             if(nuevoTitulo !== titulo || nuevaOpinion !== opinion || nuevaTematica !== tematica || nuevoProgreso !== progreso || nuevaPuntuacion !== puntuacion){
-                fetch("http://localhost:3000/api/libros/actualizar/" + id, {
-                    method: "PUT",
-                    headers : {
-                        "Content-Type" : "application/json"
-                    },
-                    body: JSON.stringify(elementosActualizados)
-                })
+                fetch("http://localhost:3000/api/libros/actualizar/" + id, opcionesConfiguracion)
                 .then(respuesta => respuesta.json())
                 .then(({ error,resultado }) => {
                         if(!error && resultado === "ok"){
                             actualizarLibro(id,elementosActualizados)
                             setEditar(false)
                         }
-                        console.log("Error al actualizar el libro")
+                        console.log("....Error intentando actualizar el libro")
                         
                 })
+                .catch(err => console.log(err))
+                .finally(() => controlador.abort())
     
             }else{
                 setEditar(false)
@@ -216,7 +230,7 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
                     { editar ? (<h1 className="editar-h1 text-center mb-2">Editar</h1>) : "" }
                     { editar ? (<input type="text" className="editar-inputs form-control mt-1 mb-2" id="inputAddress" placeholder="Cambia el título" value={nuevoTitulo}
                                 onChange={(evento) => setNuevoTitulo(evento.target.value)}/>) 
-                             : <h3 className="tarjeta-h3 card-title text-wrap fs-2 mb-4"> {titulo}</h3> }
+                             : <h3 className="tarjeta-h3 card-title w-100 text-wrap fs-2 mb-4"> {titulo}</h3> }
                     
                     { editar ? (<div className="input-group mt-1 mb-2">
                                     <select className=" form-select" id="inputGroupSelect02" value={nuevaTematica}
@@ -231,11 +245,11 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
                                         <option value="Poesía🌹">Poesía🌹</option>
                                         <option value="Romance💖">Romance💖</option>
                                         <option value="No ficción👩‍🎓">No ficción👩‍🎓</option>
-
                                     </select>
+                                    
                         
                                 </div>) 
-                             : <p className="card-text"><strong className="fs-5">Género:</strong> {tematica}</p> }
+                             : <p className="card-text"><strong className="fs-6">Temática:</strong> {tematica}</p> }
 
                     { editar ? (<div className="d-flex justify-content-center m-3">
                                     <div className="grid text-center">
@@ -248,32 +262,31 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
                                         <div className="form-check form-check-inline">
                                             <input className="form-check-input" type="radio" name="nuevasPuntuaciones" id="nuevaPuntuacion2" value="2" checked={nuevaPuntuacion === 2} 
                                             onChange={() => setNuevaPuntuacion(2)}/>
-                                            <label className="form-check-label editar-label--radio" htmlFor="inlineRadio2">2⭐</label>
+                                            <label className="form-check-label editar-label--radio" htmlFor="nuevaPuntuacion2">2⭐</label>
                                         </div>
 
                                         <div className="form-check form-check-inline">
                                             <input className="form-check-input" type="radio" name="nuevasPuntuaciones" id="nuevaPuntuacion3" value="3" checked={nuevaPuntuacion === 3} 
                                             onChange={() => setNuevaPuntuacion(3)}/>
-                                            <label className="form-check-label editar-label--radio" htmlFor="inlineRadio3">3⭐</label>
+                                            <label className="form-check-label editar-label--radio" htmlFor="nuevaPuntuacion3">3⭐</label>
                                         </div>
 
                                         <div className="form-check form-check-inline">
                                             <input className="form-check-input" type="radio" name="nuevasPuntuaciones" id="nuevaPuntuacion4" value="4" checked={nuevaPuntuacion === 4} 
                                             onChange={() => setNuevaPuntuacion(4)}/>
-                                            <label className="form-check-label editar-label--radio" htmlFor="inlineRadio4">4⭐</label>
+                                            <label className="form-check-label editar-label--radio" htmlFor="nuevaPuntuacion4">4⭐</label>
                                         </div>
 
                                         <div className="form-check form-check-inline">
-                                            <input className="form-check-input" type="radio" name="nuevasPuntuaciones" id="nuevaPuntuaicion5" value="5" checked={nuevaPuntuacion === 5} 
+                                            <input className="form-check-input" type="radio" name="nuevasPuntuaciones" id="nuevaPuntuacion5" value="5" checked={nuevaPuntuacion === 5} 
                                             onChange={() => setNuevaPuntuacion(5)}/>
-                                            <label className="form-check-label editar-label--radio" htmlFor="inlineRadio5">5⭐</label>
+                                            <label className="form-check-label editar-label--radio" htmlFor="nuevaPuntuacion5">5⭐</label>
                                         </div>
                                     </div>
                                 </div>) 
-                             : <p className="card-text"><strong className="fs-5">Puntuación:</strong> {puntuacion} estrellas ⭐</p> }
+                             : <p className="card-text"><strong className="fs-6">Puntuación:</strong> {puntuacion} estrellas ⭐</p> }
                     
                     { editar ? (<div className="input-group mb-2">
-                                    <label className="editar-label editar-label--option input-group-text" htmlFor="inputGroupSelect02">Progreso</label>
                                     <select className=" form-select" id="inputGroupSelect02"  value={nuevoProgreso}
                                             onChange={(evento) => setNuevoProgreso(evento.target.value)}>
                                         <option value="">Cambia tu progreso...</option>
@@ -282,8 +295,8 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
                                         <option value="Terminado ✌️">Terminado ✌️</option>
                                     </select>
                                 </div>) 
-                             : <p className="card-text"><strong className="fs-5">Progreso:</strong> {progreso}</p> }  
-                    { editar ? "" : <h3 className="tarjeta-h3 fs-5 ">Reseña</h3>}  
+                             : <p className="card-text"><strong className="fs-6">Progreso:</strong> {progreso}</p> }  
+                    { editar ? "" : <h3 className="tarjeta-h3 fs-6 ">Reseña</h3>}  
                     { editar ? (<div className="editar-cuadros col-12 mt-1 mb-1">  
                                     <textarea className="editar-inputs form-control" placeholder="Todo el mundo puede cambiar de opinión...😉" id="floatingTextarea" value={nuevaOpinion}
                                     onChange={(evento) => setNuevaOpinion(evento.target.value)}></textarea> 
@@ -301,19 +314,20 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
 
                                 }}
                         >{ editar ? "Guardar" : "Editar"}</button>
-                        <button className="tarjeta-boton tarjeta-boton--borrar btn" type="button" onClick={() => {
-                                fetch("http://localhost:3000/api/libros/borrar/" + id, {
-                                        method : "DELETE",
-                                        
-                                })
-                                .then(respuesta => respuesta.json())
-                                .then(({error, resultado}) => {
-                                        if(!error && resultado == "ok"){
-                                             return borrarLibro(id)   
-                                        }
-                                        console.log("...error al usuario")       
-                                })
-                        } }>Borrar</button>
+                        <button className="tarjeta-boton tarjeta-boton--borrar btn" type="button" 
+                                onClick={() => {
+                                                   fetch("http://localhost:3000/api/libros/borrar/" + id, configuracionBorrar)
+                                                    .then(respuesta => respuesta.json())
+                                                    .then(({error, resultado}) => {
+                                                            if(!error && resultado == "ok"){
+                                                                 return borrarLibro(id)   
+                                                            }
+                                                            console.log("...Error intentando borrar el libro")       
+                                                    })
+                                                    .catch(err => console.log(err))
+                                                    .finally(() => controlador.abort())
+
+                                } }>Borrar</button>
                     </div>  
               </div>
       </section>

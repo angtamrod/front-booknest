@@ -16,7 +16,8 @@ function BotonScroll(){
                                 top:0,
                                 behavior: "smooth",
                             })
-                        }} className="scroll-button btn position-fixed bottom-0 end-0 m-5 rounded-circle" ><i className="bi bi-arrow-up-circle-fill fs-1"></i>
+                        }} className="scroll-button
+                        bottom-50 end-0 btn position-fixed m-4 rounded-circle" ><i className="bi bi-arrow-up-circle-fill fs-1" title="Ir hacia arriba"></i>
                         </button>) }
                         
         </>

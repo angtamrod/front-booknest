@@ -8,15 +8,26 @@ function Login() {
 
     useEffect(() => {
         
-        document.body.style.backgroundColor = "#c9dbe7";
+        document.body.style.backgroundColor = "#c9dbe7"
         return () => {
-          document.body.style.backgroundColor = "";
+          document.body.style.backgroundColor = ""
         };
       }, []);
 
-      let [email, setEmail] = useState("");
-      let [password, setPassword] = useState("");
-      const navigate = useNavigate();
+      let [email, setEmail] = useState("")
+      let [password, setPassword] = useState("")
+      const navigate = useNavigate()
+      
+
+      
+      let controlador = new AbortController()
+      let opcionesConfiguracion = {
+                                        method : "POST",
+                                        body : JSON.stringify({ email, password }),
+                                        headers : {
+                                            "Content-type" : "application/json"
+                                        }
+                                  }
 
   return (
 
@@ -36,29 +47,35 @@ function Login() {
                     alert("Parece que te has dejado algún campo SIN RELLENAR 🔍")
                     return;
                 }
-                fetch("http://localhost:3000/api/login",{
-                    method : "POST",
-                    body : JSON.stringify({ email, password }),
-                    headers : {
-                        "Content-type" : "application/json"
-                    }
+                fetch("http://localhost:3000/api/login", opcionesConfiguracion)
+                .then((respuesta) => {
+                    if (!respuesta.ok) {
+                        if (respuesta.status === 404) {
+                            throw new Error("El usuario ya existe");
+                        }else {
+                            throw new Error("Error en el servidor");
+                        }
+                      }
+                      return respuesta.json();
                 })
-                .then(respuesta => respuesta.json())
                 .then((usuario) => {
-                    console.log("Respuesta del servidor", usuario);
+                    console.log("Respuesta del servidor", usuario)
                     let { token,user } = usuario;
                     if(!token|| !user){
-                        alert("Vayaa...Los datos no son correctos 😭. Inténtelo de nuevo por favor 😊 (ABSTÉNGANSE BOTS Y HACKERS😤)")
-                        return;
+                        alert("Datos incorrectos, nadie tiene memoria de Elefante 🐘")
+                        return
                     }  
-                    sessionStorage.setItem("token", token);
-                    sessionStorage.setItem("usuario_id",user.id);
+                    sessionStorage.setItem("token", token)
+                    sessionStorage.setItem("usuario_id",user.id)
                     navigate('/');
                     
-                }).catch((error) => {
-                    console.error("Datos incorrectos", error);
-                    alert("Definitivamente esos nos son los datos correctos ⛔");
-                });
+                })
+                .catch((error) => {
+                    console.error("Error al registrar el usuario", error.message)
+                    alert("Datos incorrectos ⛔, tranquil@ nadie tiene memoria de Elefante 🐘",error.message) 
+                    
+                })
+                .finally(() => controlador.abort())
         }}>
             <h1 className="registro-h1 p-3 container fs-1 text-center mx-auto  mb-1">Login</h1>
             
@@ -70,10 +87,13 @@ function Login() {
                 <label htmlFor="loginPassword1" className="login-label form-label">Password</label>
                 <input type="password" placeholder="*************" className="form-control" id="loginPassword1" value={password} onChange={(evento) => setPassword(evento.target.value)} />
             </div>
-            <div className="d-flex justify-content-end gap-2 w-80 mt-4 pb-3">
+            {/* <div className="d-flex justify-content-end gap-2 w-80 mt-4 pb-3">
                 <Link to="/registro" className="login-link login-btn login-btn--registro btn btn-primary text-decoration-none">Regístrate</Link>
                 <button type="submit" className="login-btn btn">Iniciar sesión</button>
-            </div>
+            </div> */}
+
+            <Link to="/registro" className="login-link login-btn login-btn--registro btn text-decoration-none">Regístrate</Link>
+            <button type="submit" className="login-btn btn">Iniciar sesión</button>
         </form>   
        
     </main>

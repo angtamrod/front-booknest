@@ -67,14 +67,16 @@ body{
   background: #FDD28A;
 }
 
-
 .scroll-button{
   width: 50px;
   height: 50px;
-  color: #124361;
+  right: 15px;
+  bottom: 30px;
+  color: whitesmoke;
+  z-index: 2;
 }
 .scroll-button:hover{
-  color: whitesmoke;
+  color: #124361;
 }
 
 
@@ -82,8 +84,29 @@ body{
 .nav{
   background-color:  #c9dbe7;
 }
-.nav-icono{
-  color: #EF7E6B;
+.nav-span{
+  font-family: Bugaki;
+  text-decoration: none; 
+}
+.nav-link{
+  color: #EF7E6B; 
+}
+.nav-link:hover{
+  color: #124361;
+}
+.nav-link--logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  padding: 0;
+}
+.nav-logo{
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
 }
 
 
@@ -92,6 +115,7 @@ body{
 /*Index.jsx*/
 .foto{
   background-image: url(/imgs/fondo3.webp);
+  max-width: 100vw;
   background-repeat: repeat;
 }
 .foto-texto{
@@ -145,13 +169,23 @@ body{
 .app-h1{
   color: #EF7E6B;
   font-family: Bugaki;
-  font-size: 4rem; 
+    
 }
 .app-h3{
   font-family: Bugaki;
   color: whitesmoke;
-  font-size: 3rem;
   max-width: 700px;
+}
+
+.app-h3--vacio{
+  color: #124361;
+  font-family: Bugaki;
+    
+}
+.app-p{
+  color: #124361;
+  max-width: 700px;
+  font-weight: bolder;
 }
 .app-h3--libros{
   margin-top: 100px;
@@ -162,6 +196,7 @@ body{
   color: #EF7E6B;
   font-weight: bold;
 }
+
 .app-icon{
   color: #EF7E6B;
 }
@@ -170,6 +205,16 @@ body{
 }
 .app-container{
   background-color: #FDD28A;
+}
+.app-input{
+  max-width: 900px;
+  padding: 20px;
+  margin-top: 50px;
+  background-color: #EF7E6B;
+}
+.app-button{
+  background-color: #124361;
+  color: #EF7E6B;
 }
 
 
@@ -225,12 +270,16 @@ body{
 .tarjeta{
   background-color: #c9dbe7;
   color: #124361;
-  max-width: 800px;
+  max-width: 750px;
 }
 
 .tarjeta-h3{
   font-weight: bolder;
+  font-size: 4rem;
   text-decoration: underline;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 .tarjeta-h4{
   font-weight: bold;
@@ -238,11 +287,7 @@ body{
 }
 .tarjeta-texto{
   padding-right: 10px;
-
 }
-
-
-
 .tarjeta-boton{
   background-color: #FDD28A;
   color: #124361;
@@ -310,6 +355,7 @@ body{
   background-color: #124361;
   color: whitesmoke;
   font-weight: bold;
+  max-width: 97%;
 }
 .login-btn:hover{
   background-color: #c9dbe7;
@@ -318,7 +364,6 @@ body{
 .login-btn--registro{
   background-color: #c9dbe7;
 }
-
 .login-img{
   max-width: 130px;
   height: auto;
@@ -339,7 +384,7 @@ body{
   color: #124361; 
 }
 .registro-form{
-  max-width: 430px;
+  max-width: 500px;
   max-height: auto;
   background-color: #c9dbe7;
 }
@@ -350,6 +395,7 @@ body{
   background-color: #124361;
   color: whitesmoke;
   font-weight: bold;
+  max-width: 97%;
 }
 .registro-btn:hover{
   background-color: #EF7E6B;
@@ -376,12 +422,10 @@ body{
   background-color: #EF7E6B;
   color: #124361;
 }
-
 .footer-h5{
   font-family: Bugaki;
   text-decoration: underline;
 }
-
 .footer-enlaces{
   text-decoration: none;
   color: #124361;
