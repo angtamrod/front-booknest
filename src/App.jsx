@@ -137,7 +137,7 @@ function App() {
         
         {/* Sección para mostrar los libros almacenados o si no hay una pequeña explicación */}
 
-        {/*Muestra los libros almacenados de manera inversa para que el último libro que añade se vea el primero de la lista */}
+        {/*Muestra los libros almacenados de manera inversa para que el último libro que añade se vea el primero de la lista, pero primero hace una copia de la lista con slice(), para no modificar la lista original */}
         <section className="app-amarillo gap-4 pb-4 mx-auto d-flex flex-column justify-content-center align-items-center">
             
            { libros==false ? (<div className="p-3 max-vw-100 pb-2 mx-auto grid row text-center justify-content-center gap-2 align-items-center">
