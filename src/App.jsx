@@ -4,16 +4,23 @@
  * hooks: -useEffect: Para ejecutar el cambio de color de fondo para cuando se monta el componente
  *        -useState: Para crear estados que gestionen la cumplimentación de datos para la implementación de los datos traidos del back, y los almacena en un array llamado libros
  * 
+ * Componentes: - Navbar
+ *              - Footer
+ *              - BotonSroll: Botón para subir hacia arriba en la página
+ *              - Formulario: Componente para generar una nueva tarjeta/libro. Ejecuta la función nuevoLibro
+ *              - Trjeta: Componente que representa la tarjeta/libro y que ejecuta dos funciones actualizarLibro y borrarLibro
  * Datos: fetch a API situada en "https://back-booknest.onrender.com/api/libros/"
  * Estructura:
  *      - Navbar
- *      - App
+ *      - App:
+ *          - Formulario
+ *          - Tarjeta
  *      - Footer
  * 
  -------------------------------------------------------------------------------*/
 
 
-//importamos hooks y componentes 
+//importación de hooks y componentes 
 import { useEffect,useState } from "react";
 
 import BotonScroll from "./components/BotonScroll.jsx";
@@ -56,6 +63,8 @@ function App() {
 
 
       /**
+       * nuevoLibro()
+       * 
        * Función para añadir un nuevo libro a la lista
        * 
        * @param {Object} libro -Objeto que contiene los datos del libro
@@ -65,6 +74,8 @@ function App() {
       }
 
       /**
+       * borrarLibro()
+       * 
        * Función para eliminar un libro de la lista
        * 
        * @param {string} id - Id del libro a eliminar
@@ -77,6 +88,8 @@ function App() {
     
 
       /**
+       * actualizarLibro()
+       * 
        * Función para actualizar los datos de un libro de la lista
        * 
        * @param {string} id - Id del libro a eliminar

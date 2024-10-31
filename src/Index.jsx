@@ -15,7 +15,7 @@
  -------------------------------------------------------------------------------*/
 
 
-//Importamos hooks y componentes
+//Importacuón hooks y componentes
 import { Link } from "react-router-dom";
 import BotonScroll from "./components/BotonScroll";
 import Navbar from "./components/Navbar";

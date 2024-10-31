@@ -4,7 +4,11 @@ import {  useState } from "react";
 
 
 /**
- * Componente Tarjeta.
+ * Componente Tarjeta.jsx
+ * 
+ * Datos: - fetch a API situada en "https://back-booknest.onrender.com/api/libros/actualizar/" + id
+ *        - fetch a API situada en "https://back-booknest.onrender.com/api/libros/borrar/" + id,
+ * 
  * Este componente muesta una tarjeta que contiene toda la información del libro
  * 
  * Ofrece opciones de actualización y eliminación de la tarjeta

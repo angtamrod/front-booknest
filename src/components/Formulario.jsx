@@ -4,6 +4,9 @@ import { useState } from "react";
 
 /**
  * Componente Formulario.
+ * 
+ * Datos: - fetch a API situada en "https://back-booknest.onrender.com/api/libros/nuevo"
+ * 
  * Este componente permite añadir un nuevo libro, recogiendo titulo, opinión, temática,progreso y puntuación
  * 
  * Esta función envía los datos a una api y añade el libro resultante a la lista de libros de la App.jsx
@@ -14,7 +17,7 @@ import { useState } from "react";
 
 function Formulario({nuevoLibro}) {
 
-  //Los estados que recogen los datos para la cración de una nueva tarjeta, los useStates tienen como contenido inicial vacío y 0.
+  //Los estados que recogen los datos para la cración de una nueva tarjeta, los useStates tienen como contenido inicial vacío y 0 para que no marque ninguna casilla por defecto.
   let [titulo,setTitulo] = useState("")
   let [opinion,setOpinion] = useState("")
   let [tematica,setTematica] = useState("")
@@ -36,7 +39,7 @@ function Formulario({nuevoLibro}) {
   return (
     <>
 
-    {/*aenterior ruta: http://localhost:3000/api/libros/nuevo*/ }
+   
     <form className="formulario container-sm mx-auto mt-1 mb-5 row g-3 shadow g-0 p-4 rounded md-mr-20" onSubmit={(evento) => {
             evento.preventDefault()
             if(titulo.trim() !== "" || opinion.trim() !== "" || tematica !== "" || progreso !== "" || puntuacion !== ""){
