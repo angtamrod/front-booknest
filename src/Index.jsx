@@ -2,6 +2,10 @@
  * INDEX.JSX
  * 
  * hooks: Link
+ * 
+ * Componentes: - Navbar
+ *              - Footer
+ *              - BotonSroll: Botón para subir hacia arriba en la página
  * Estructura:
  *      - Navbar
  *      - Foto-link
@@ -31,7 +35,7 @@ function Index() {
     {/* Sección que muesta una foto de bienvenida y un botón que te lleva a la sección BookPack (App.jsx) */}
     <section className="foto container-fluid d-flex align-items-center justify-content-center vh-100  mb-4 mt-0 rounded">
           <Link to="/bookpack" className="foto-texto card p-4 bg-opacity-50 shadow rounded-pill" title="Ir a BookPack">
-              <h1 className="foto-link fs-1 text-center">Comienza con BookNest</h1>
+              <h1 className="foto-link fs-1 text-center">Comienza tu aventura</h1>
           </Link>
     </section>
 

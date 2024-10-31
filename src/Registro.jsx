@@ -1,7 +1,10 @@
 /**-----------------------------------------------------------------------------
  * REGISTRO.JSX
  * 
- * hooks: useEffect,useState, useNavigate, Link
+ * hooks: -useEffect: Para ejecutar el cambio de color de fondo para cuando se monta el componente
+ *        -useState: Para crear estados que gestionen la cumplimentación de datos de registro
+ *        -useNavigate: Para redirigir una vez se haya completado el registro al componente Login.jsx
+ *        -Link: El componente link para enlazar con otros componentes
  * Datos: fetch a API situada en"https://back-booknest.onrender.com/api/registro"
  * Estructura:
  *      - registro
@@ -31,8 +34,10 @@ function Registro() {
     let [password, setPassword] = useState("")
 
     const navigate = useNavigate();
-    //Variable de entorno para las rutas de registro
-    //const { VITE_REGISTRO } = import.meta.env
+    /* Variable de entorno para las rutas de registro
+            He intentado utilizar las variables de entorno para vite, pero no las ha reconocido bien en render.com
+            const { VITE_REGISTRO } = import.meta.env
+ */
     //Controlador para cancelar la solicitud fetch si es necesario
     let controlador = new AbortController()
 
@@ -59,7 +64,7 @@ function Registro() {
        
        {/*El fetch se ejecuta solo si están completos los campos de nombr, email y password*/ }
 
-       {/*  */ }
+       {/* Hace una primera comprobación para que no dejes ningún campo sin rellenar, una vez aceptada la petición sin errores se completa el registro y se redirige al index*/ }
             <form className="registro-form container-sm mx-auto mt-1 mb-2 row g-3 shadow p-4 rounded " onSubmit={ (evento) => {
                 evento.preventDefault()
                 if(!nombre||!email || !password){
@@ -106,7 +111,7 @@ function Registro() {
                 <label htmlFor="registroPassword1" className="registro-label form-label">Contraseña</label>
                 <input type="password" placeholder="No uses tu fecha de cumpleaños 🙃" className="registro-inputs form-control" id="registroPassword" value={password} onChange={(evento) => setPassword(evento.target.value)} />
             </div>
-            {/* <button type="submit" className="registro-btn btn">Guardar</button> */}
+            
             
                 <Link to="/login" className="login-link registro-btn  btn  text-decoration-none">Login</Link>
                 <button type="submit" className="registro-btn registro-btn--guardar btn">Guardar</button>

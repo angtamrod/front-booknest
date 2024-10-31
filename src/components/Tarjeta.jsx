@@ -1,5 +1,5 @@
 
-//Importamos hooks
+//Importación de hooks
 import {  useState } from "react";
 
 
@@ -26,7 +26,7 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
     //Un estado booleano que hace que se muestre la tarjeta en modo editar o en modo normal
     let [editar,setEditar] = useState(false)
 
-    //Los estados que recogen los datos de la actualización de la tarjeta
+    //Los estados que recogen los datos de la actualización de la tarjeta, los useStates tienen como estado inicial las props provenientes de App.jsx, donde se ha hecho un fetch a la API y se ha creado la lista libros, por lo tanto en los inputs se mostraán en primer lugar los datos iniciales de la tarjeta, una vez modificados se mos trarán los datos en la tarjeta resultante
     let [nuevoTitulo,setNuevoTitulo] = useState(titulo)
     let [nuevaOpinion,setNuevaOpinion] = useState(opinion)
     let [nuevaTematica,setNuevaTematica] = useState(tematica)
@@ -34,8 +34,9 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
     let [nuevaPuntuacion,setNuevaPuntuacion] = useState(puntuacion)
    
 
-    //Variables de entorno para las rutas de actualizar y de borrar
-    //const { VITE_ACTUALIZAR,VITE_BORRAR } = import.meta.env
+    /* Variables de entorno para las rutas de actualizar y de borrar
+        He intentado utilizar las variables de entorno para vite, pero no las ha reconocido bien en render.com
+        const { VITE_ACTUALIZAR,VITE_BORRAR } = import.meta.env */
     let controlador = new AbortController()
 
     let configuracionBorrar = {
@@ -51,7 +52,7 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
             //Creamos un objeto vacío donde almacenaremos los datos actualizados resultantes
             let elementosActualizados = {}
 
-            //Estas comprobaciones se hacen para que si el estado nuevoTitulo y el titulo pasado como prop, no coinciden el título del elementosActualizados será el nuevo título y así con cada dato
+            //Estas comprobaciones se hacen para que si el estado nuevoTitulo y el titulo pasado como prop, no coinciden el título del elementosActualizados que se enviará a la API, será el nuevo título y así con cada dato
             if(nuevoTitulo !== titulo){
                 elementosActualizados.titulo = nuevoTitulo
             }
@@ -81,7 +82,7 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
                                             signal : controlador.signal
                                         }
 
-            {/*aenterior ruta: http://localhost:3000/api/registro */ }
+           
             if(nuevoTitulo !== titulo || nuevaOpinion !== opinion || nuevaTematica !== tematica || nuevoProgreso !== progreso || nuevaPuntuacion !== puntuacion){
                 fetch("https://back-booknest.onrender.com/api/libros/actualizar/" + id, opcionesConfiguracion)
                 .then(respuesta => respuesta.json())
@@ -106,7 +107,7 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
   
   return (
     <>
-
+      {/* El componente muestra los elementos de la sección editar con todos los inputs o el contenido resultante que proviene a través de props de la lista libros que hemos generado con un fetch a la api en App.jsx, por ello también el primer contenido que se muestra en los inputs son también las props */}  
       {/* en este caso he utilizado el two way biding para conectar los valores que recogemos con el evento onChange con el estado que hemos designado para cada dato que vamos a almacenar */}
       <section className="tarjeta container mx-auto mt-2 mb-4 p-4 d-flex flex-column rounded shadow">
               <div className="card-body flex-grow-1 ">
@@ -197,7 +198,7 @@ function Tarjeta({id,titulo,opinion,tematica,progreso,puntuacion,borrarLibro,act
 
                                 }}
                         >{ editar ? "Guardar" : "Editar"}</button>
-                        {/* antigua ruta: http://localhost:3000/api/libros/borrar/ */}
+                        
                     
                         { editar ? "" : (<button className="tarjeta-boton tarjeta-boton--borrar btn" type="button" 
                                                     onClick={() => {

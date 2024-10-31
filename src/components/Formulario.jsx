@@ -14,13 +14,15 @@ import { useState } from "react";
 
 function Formulario({nuevoLibro}) {
 
+  //Los estados que recogen los datos para la cración de una nueva tarjeta, los useStates tienen como contenido inicial vacío y 0.
   let [titulo,setTitulo] = useState("")
   let [opinion,setOpinion] = useState("")
   let [tematica,setTematica] = useState("")
   let [progreso,setProgreso] = useState("")
   let [puntuacion,setPuntuacion]= useState(0)
 
-  //const { VITE_FORMULARIO } = import.meta.env
+ /* He intentado utilizar las variables de entorno para vite, pero no las ha reconocido bien en render.com
+      const { VITE_FORMULARIO } = import.meta.env */
   let usuario_id = sessionStorage.getItem("usuario_id");
   let controlador = new AbortController()
   let opcionesConfiguracion = {

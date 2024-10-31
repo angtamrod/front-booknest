@@ -1,7 +1,9 @@
 /**-----------------------------------------------------------------------------
  * APP.JSX
  * 
- * hooks: useEffect,useState
+ * hooks: -useEffect: Para ejecutar el cambio de color de fondo para cuando se monta el componente
+ *        -useState: Para crear estados que gestionen la cumplimentación de datos para la implementación de los datos traidos del back, y los almacena en un array llamado libros
+ * 
  * Datos: fetch a API situada en "https://back-booknest.onrender.com/api/libros/"
  * Estructura:
  *      - Navbar
@@ -133,13 +135,14 @@ function App() {
                             </div>) 
                         : (<div className=" container gap-1 mt-4 pb-3 mx-auto d-flex flex-column justify-content-center align-items-center">
                               { libros.slice().reverse().map(({id,titulo,opinion,tematica,progreso,puntuacion}) => <Tarjeta key={id} 
-                                                                                                            id={id} 
-                                                                                                            titulo={titulo}                         opinion={opinion} 
-                                                                                                            tematica={tematica}
-                                                                                                            progreso={progreso}
-                                                                                                            puntuacion={puntuacion}
-                                                                                                            borrarLibro={borrarLibro}
-                                                                                                            actualizarLibro={actualizarLibro}/>
+                                                                                                                            id={id} 
+                                                                                                                            titulo={titulo}                         
+                                                                                                                            opinion={opinion} 
+                                                                                                                            tematica={tematica}
+                                                                                                                            progreso={progreso}
+                                                                                                                            puntuacion={puntuacion}
+                                                                                                                            borrarLibro={borrarLibro}
+                                                                                                                            actualizarLibro={actualizarLibro}/>
                               )} 
                             </div>)}
 

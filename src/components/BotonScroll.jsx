@@ -15,7 +15,7 @@ function BotonScroll(){
     //Estado para controlar la visibilidad del botón
     let [visible,setVisible] = useState(false)
 
-    //Evento para cambiar la visibilidad del botón según según la ventana
+    //Evento para cambiar la visibilidad del botón según la posición del scrool de la ventana
     window.onscroll = () => {
         setVisible(window.scrollY>200)
     }
@@ -32,7 +32,7 @@ function BotonScroll(){
                                 behavior: "smooth",
                             })
                         }} className="scroll-button
-                        bottom-50 end-0 btn position-fixed m-4 rounded-circle" ><i className="bi bi-arrow-up-circle-fill fs-1" title="Ir hacia arriba"></i>
+                        bottom-50 end-0 btn position-fixed m-4 rounded-circle fs-1" ><i className="bi bi-arrow-up-circle-fill fs-1" title="Ir hacia arriba"></i>
                         </button>) }
                         
         </>
