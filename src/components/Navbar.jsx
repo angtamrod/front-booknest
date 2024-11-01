@@ -13,7 +13,7 @@ function Navbar() {
   return (
 
     <>
-
+    <header>
     <nav className="nav navbar sticky-top shadow rounded text-emphasis-primary d-flex justify-content-center align-items-center">
         <div className="nav-div container d-flex justify-content-between align-items-center">
 
@@ -33,7 +33,7 @@ function Navbar() {
           </Link>
         </div>
     </nav> 
-
+</header>
 
     
 
